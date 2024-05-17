@@ -5,6 +5,19 @@
     } else {
         let cod_acesso = prompt("Código Incorreto:");
     }*/
+
+    function abrirDrop(id) {
+        let linha = document.querySelector("tr.linha-drop-" + id)
+        let seta = document.querySelector("svg.seta-" + id)
+
+        if(linha.style.display != "table-row") {
+            linha.style.display = "table-row"
+            seta.style.transform = "rotate(90deg)"
+        } else {
+            linha.style.display = "none"
+            seta.style.transform = "rotate(0)"
+        }
+    }
 </script>
 
 <?php
@@ -14,7 +27,25 @@
     include_once __DIR__ . "/../partials/header-internal-cliente.php";
 
     $db = new Db($config);
-    $participantes = $db->select("SELECT * FROM `users` WHERE type <> 'Teste'");
+    $participantes = $db->select("SELECT
+                                    users.id AS user_id,
+                                    users.codigo,
+                                    users.email,
+                                    users.cpf,
+                                    users.name,
+                                    users.name_extension,
+                                    users.phone,
+                                    users.type,
+                                    users_address.id AS address_id,
+                                    users_address.postal_code,
+                                    users_address.street,
+                                    users_address.city,
+                                    users_address.region,
+                                    users_address.complement,
+                                    users_address.district,
+                                    users_address.number,
+                                    users_address.reference
+                                        FROM `users` LEFT JOIN `users_address` ON users.id = users_address.user_id WHERE users.type <> 'Teste' ORDER BY users.name");
     $desempenhos = $db->select("SELECT * FROM `goals`");
     $pedidos = $db->select("SELECT * FROM `order_item` LEFT JOIN `order` ON order_item.order_id = order.id");
 ?>
@@ -73,11 +104,15 @@
     .tabela-cliente {
         width: 100%;
         border-collapse: collapse;
-        max-height: 80vh;
+        max-height: 60vh;
     }
 
     .tabela-cliente tr:nth-child(odd) {
         background-color: #f0f0f0;
+    }
+
+    .tabela-cliente tbody tr:nth-child(odd) {
+        border-top: .1rem solid #dddddd;
     }
     
     .tabela-cliente tr:nth-child(even) {
@@ -106,7 +141,7 @@
     }
 
     #participantes>div {
-        height: 50vh;
+        height: 65vh;
     }
 
     #participantes>div div:first-of-type {
@@ -114,40 +149,73 @@
         width: 70% !important;
     }
 
+    #participantes>div div:first-of-type table thead tr th:nth-child(1) {
+        width: calc(35% / 1) !important;
+    }
+
+    #participantes>div div:first-of-type table thead tr th:nth-child(2),
+    #participantes>div div:first-of-type table thead tr th:nth-child(3),
+    #participantes>div div:first-of-type table thead tr th:nth-child(4) {
+        width: calc(60% / 3) !important;
+        padding-left: 0rem;
+    }
+
+    #participantes>div div:first-of-type table thead tr th:nth-child(5) {
+        width: 5% !important;
+    }
+
+    #participantes>div div:first-of-type table .drop-down {
+        display: none;
+        height: 30rem;
+        vertical-align: top;
+    }
+
+    #participantes>div div:first-of-type table .drop-down td {
+        padding: 2rem 1.5rem;
+    }
+
+    #participantes>div div:first-of-type table tr td {
+        cursor: pointer;
+    }
+
+    #participantes>div div:first-of-type table tr td ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    #participantes>div div:first-of-type table tr td ul li {
+        padding: .5rem 0;
+        margin: 0;
+        list-style-type: none;
+    }
+
     #participantes>div div:last-of-type {
         width: 28% !important;
-        height: 50vh;
+        height: 65vh;
         background-color: #f0f0f0;
+        padding: 1.5rem;
     }
 
     #participantes>div div:last-of-type table {
         width: 100%;
     }
 
-    #participantes>div div:first-of-type table thead tr th:nth-child(1) {
-        width: calc(30% / 1) !important;
-    }
-
-    #participantes>div div:first-of-type table thead tr th:nth-child(2),
-    #participantes>div div:first-of-type table thead tr th:nth-child(3),
-    #participantes>div div:first-of-type table thead tr th:nth-child(4),
-    #participantes>div div:first-of-type table thead tr th:nth-child(5) {
-        width: calc(70% / 4) !important;
-    }
-
-    #participantes>div div:last-of-type table tr:first-of-type td {
+    #participantes>div div:last-of-type table tr th {
         font-size: 1.2rem;
         font-weight: 600;
-        padding: 1rem .75rem 2rem !important;
+        padding-bottom: 1rem;
+        border-bottom: .1rem solid #858585;
+        text-align: center;
     }
 
     #participantes>div div:last-of-type table tr td {
         width: 75%;
-        padding: 0 .75rem 1.5rem;
+        padding: .5rem 0;
+        /*border: .2rem solid red;*/
     }
 
     #participantes>div div:last-of-type table tr td:last-of-type {
-        text-align: center;
+        text-align: right;
     }
 
     #pedidos>div>div {
@@ -272,13 +340,10 @@
                         <thead>
                             <tr>
                                 <th>Nome</th>
-                                
-                                <th>Público</th>
-
-
                                 <th>Vendas</th>
                                 <th>Maxx Pontos</th>
                                 <th>Prêmios</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -288,13 +353,18 @@
                                         $venda_total = 0;
                                         $pontos_total = 0;
                                         $qtd_pedidos = 0;
-                                        
+                                                                                
                                         for($d = 0; $d < count($desempenhos); $d++) {
-                                            if(isset($desempenhos[$d]) && isset($participantes[$i]) && $desempenhos[$d]['cod'] == $participantes[$i]['cpf']) {
-    
+                                            if($participantes[$i]['cpf'] == $desempenhos[$d]['cod']) {
+                                                
                                                 for($v = 1; $v <= 12; $v++) {
                                                     $venda_total += $desempenhos[$d]['venda_' . $v];
                                                     $pontos_total += $desempenhos[$d]['points_e1_' . $v];
+                                                    
+                                                    $participantes[$i]['metas'][$v] = $desempenhos[$d]['meta_' . $v];
+                                                    $participantes[$i]['vendas'][$v] = $desempenhos[$d]['venda_' . $v];
+                                                    $participantes[$i]['realizado'][$v] = $desempenhos[$d]['realizado_' . $v] * 100;
+                                                    $participantes[$i]['pontos'][$v] = $desempenhos[$d]['points_e1_' . $v];
                                                 }
                                             }
                                         }
@@ -305,15 +375,63 @@
                                             }
                                         }
     
-                                        echo '<tr>';
+                                        echo '<tr class="linha-' . $i . '" onclick="abrirDrop(' . $i . ')">';
                                             echo '<td>' . $participantes[$i]['name'] . ' ' . $participantes[$i]['name_extension'] . '</td>';
                                             //echo '<td>' . substr($participantes[$i]['cpf'], 0, 3) . '.' . substr($participantes[$i]['cpf'], 3, 3) . '.' . substr($participantes[$i]['cpf'], 6, 3) . '-' . substr($participantes[$i]['cpf'], 9, 2) . '</td>';
-                                            echo '<td>' . $participantes[$i]['type'] . '</td>';
-                                            /*echo '<td>' . $participantes[$i]['email'] . '</td>';*/
-                                            /*echo '<td>' . $participantes[$i]['phone'] . '</td>';*/
                                             echo '<td>' . 'R$ ' . number_format($venda_total, 2, ",", ".") . '</td>';
                                             echo '<td>' . number_format($pontos_total, 0, ",", ".") . '</td>';
                                             echo '<td>' . $qtd_pedidos . '</td>';
+                                            echo '<td><svg class="seta-' . $i . ' xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></td>';
+                                        echo '</tr>';
+                                        echo '<tr class="drop-down linha-drop-' . $i . '">';
+                                            echo '<td   >
+                                                <h5>Informações Pessoais</h5><br>
+                                                <ul>
+                                                    <li><strong>Matricula</strong><br> ' . $participantes[$i]['codigo'] . '</li>
+                                                    <li><strong>E-mail</strong><br> ' . $participantes[$i]['email'] . '</li>
+                                                    <li><strong>Público</strong><br> ' . $participantes[$i]['type'] . '</li>
+                                                    <li><strong>Telefone</strong><br> ' . $participantes[$i]['phone'] . '</li>
+                                                </ul>
+                                                <br><br>
+                                                <ul>
+                                                    <li><strong>Endereço</strong><br> ' . $participantes[$i]['street'] . ', ' . $participantes[$i]['number'] . '</li>
+                                                    <li><strong>Complemento</strong><br> ' . $participantes[$i]['complement'] . '</li>
+                                                    <li><strong>Referência</strong><br> ' . $participantes[$i]['reference'] . '</li>
+                                                    <li><strong>Bairro</strong><br> ' . $participantes[$i]['district'] . '</li>
+                                                    <li><strong>CEP</strong><br> ' . $participantes[$i]['postal_code'] . '</li>
+                                                    <li><strong>Cidade</strong><br> ' . $participantes[$i]['city'] . ' - ' . $participantes[$i]['region'] . '</li>
+                                                </ul>
+                                            </td>';
+                                            echo '<td>';
+                                                echo '<h5>Vendas</h5><br>';
+                                                for($v = 1; $v <= 12; $v++) {
+                                                    if(isset($participantes[$i]['vendas'])) {
+                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhos[1]['label_' . $v] . "</strong><br>" . 'R$ ' . number_format($participantes[$i]['vendas'][$v], 2, ",", ".") . '</li>';
+                                                    } else {
+                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhos[1]['label_' . $v] . "</strong><br>" . 'R$ ' . number_format(0, 2, ",", ".") . '</li>';
+                                                    }
+                                                }
+                                            echo '</td>';
+                                            echo '<td>';
+                                                echo '<h5>Realizado</h5><br>';
+                                                for($v = 1; $v <= 12; $v++) {
+                                                    if(isset($participantes[$i]['vendas'])) {
+                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhos[1]['label_' . $v] . "</strong><br>" . number_format($participantes[$i]['realizado'][$v], 2, ",", ".") . '%</li>';
+                                                    } else {
+                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhos[1]['label_' . $v] . "</strong><br>" . number_format(0, 2, ",", ".") . '%</li>';
+                                                    }
+                                                }
+                                            echo '</td>';
+                                            echo '<td colspan="2">';
+                                                echo '<h5>Maxx Pontos</h5><br>';
+                                                for($v = 1; $v <= 12; $v++) {
+                                                    if(isset($participantes[$i]['vendas'])) {
+                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhos[1]['label_' . $v] . "</strong><br>" . number_format($participantes[$i]['pontos'][$v], 0, ",", ".") . '</li>';
+                                                    } else {
+                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhos[1]['label_' . $v] . "</strong><br>" . number_format(0, 0, ",", ".") . '</li>';
+                                                    }
+                                                }
+                                            echo '</td>';
                                         echo '</tr>';
                                     }
                                 }
@@ -324,16 +442,59 @@
                 <div>
                     <?php 
                         $publicosGeral = [];
+                        $qtd_pontosGeral = 0;
+                        $qtd_pontosTrocados = 0;
 
                         for($p = 0; $p < count($participantes); $p++) {
                             if(isset($participantes[$p]['type']) && $participantes[$p]['type'] != null) {
                                 $publicosGeral[$p] = $participantes[$p]['type'];
                             }
                         }
+
+                        for($d = 0; $d < count($desempenhos); $d++) {
+                            for($v = 1; $v <= 12; $v++) {
+                                $qtd_pontosGeral += $desempenhos[$d]['points_e1_' . $v];
+                            }
+                        }
+
+                        for($p = 0; $p < count($pedidos); $p++) {
+                            for($i = 0; $i < count($participantes); $i++) {
+                                if($participantes[$i]['cpf'] == $pedidos[$p]['user_cod']) {
+                                    $pedidos[$p]['usuario'] = $participantes[$i];
+                                }
+                            }
+
+                            if(isset($pedidos[$p]['usuario'])) {
+                                $qtd_pontosTrocados += $pedidos[$p]['total'];
+                            }
+                        }
                             
                         $publicosQtd = array_count_values($publicosGeral);
                     ?>
                     <table>
+                        <tr>
+                            <th colspan="2">Maxx Pontos</th>
+                        </tr>
+                        <tr>
+                            <td>Maxx Pontos Distribuidos</td>
+                            <td><?php echo number_format($qtd_pontosGeral, 0, ",", "."); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Maxx Pontos Trocados</td>
+                            <td><?php echo number_format($qtd_pontosTrocados, 0, ",", "."); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Maxx Pontos Não Trocados</td>
+                            <td><?php echo number_format($qtd_pontosGeral - $qtd_pontosTrocados, 0, ",", "."); ?></td>
+                        </tr>
+                    </table>
+
+                    <br><br>
+
+                    <table>
+                        <tr>
+                            <th colspan="2">Participantes</th>
+                        </tr>
                         <tr>
                             <td>Total de Participantes</td>
                             <td><?php echo count($publicosGeral); ?></td>
@@ -401,13 +562,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                        for($p = 0; $p < count($pedidos); $p++) {
-                                            for($i = 0; $i < count($participantes); $i++) {
-                                                if($participantes[$i]['cpf'] == $pedidos[$p]['user_cod']) {
-                                                    $pedidos[$p]['usuario'] = $participantes[$i];
-                                                }
-                                            }
-        
+                                        for($p = 0; $p < count($pedidos); $p++) {        
                                             if(isset($pedidos[$p]['usuario'])) {
                                                 echo '<tr>';
                                                     echo '<td>#' . $pedidos[$p]['id'] . '</td>';
@@ -417,7 +572,7 @@
                                                     echo '<td>' . $pedidos[$p]['usuario']['name'] . ' ' . $pedidos[$p]['usuario']['name_extension'] . '</td>';
                                                     echo '<td>' . number_format($pedidos[$p]['subtotal'], 0, ",", ".") . '</td>';
                                                     echo '<td>' . number_format($pedidos[$p]['frete'], 0, ",", ".") . '</td>';
-                                                    echo '<td>' . number_format($pedidos[$p]['subtotal'] + $pedidos[$p]['frete'], 0, ",", ".") . '</td>';
+                                                    echo '<td>' . number_format($pedidos[$p]['total'], 0, ",", ".") . '</td>';
                                                 echo '</tr>';
                                             }
                                         }
@@ -509,10 +664,10 @@
         </div>
     </div>
     <?php
-    
+    /*
         echo "<pre>";
-        echo print_r($pedidos);
+        echo print_r($desempenhos);
         echo "</pre>";
-    
+    */
     ?>
 </section>

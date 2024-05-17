@@ -1,0 +1,82 @@
+.product-cart
+  display block
+  border-bottom 1px solid $silver
+  padding 10px 0
+  margin 10px 0
+
+.product-cart-img
+.product-cart-description
+.product-cart-points
+  display inline-block
+  vertical-align top
+
+.product-cart-img
+  padding-right 10px
+  margin-right 10px
+  border-right 1px solid $silver
+  width 100px
+  min-height 100px
+  img
+    width 100%
+
+.product-cart-description
+  width calc(100% - 250px)
+  h4
+    color $primary
+    margin-top 0
+
+  @media (max-width: 600px)
+    width calc(100% - 120px)
+
+.product-cart-points
+  width 120px
+  padding-left 10px
+  margin-left 10px
+  border-left 1px solid $silver
+  font-size 14px
+  font-weight 500
+  .points
+    text-align right
+    padding 0 10px 0
+
+  @media (max-width: 600px)
+    width 100%
+    display block
+    padding 10px 0 5px 10px
+    margin 0
+    background $silver
+
+
+.product-cart-total
+  padding 10px
+  margin-top -10px
+  background $silver
+  text-align right
+  font-size 16px
+
+.product-cart-subtotal
+  p
+    text-align right
+    padding 10px
+    border-bottom 1px solid $silver
+
+
+
+.order-resume ul {
+  padding 15px
+}
+
+.orders-resume-item
+  width calc(32% - 5px)
+  min-height 90px
+  padding-left 10px
+  border-left 1px solid #efefef
+  display inline-block
+  vertical-align top
+  &:first-child
+    padding-left 0
+    border-left none
+
+.order-resume-title
+  font-weight bold
+  margin 0 0 5px 0

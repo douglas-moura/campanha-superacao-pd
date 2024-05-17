@@ -1,0 +1,2077 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$cor_prim: #5C1BFA;
+$cor_escuro_prim: #240890;
+$cor_claro_prim: #A575FD;
+$cor_reticula_prim: #E4D1FE;
+$cor_sec: #FAC200;
+$cor_escuro_sec: #B38300;
+$cor_reticula_sec: #FEF8CB;
+$preto: #191919;
+$cinza: #4F4F4F;
+$cinza_claro_1: #f3f3f3;
+$cinza_claro_2: #e5e5e5;
+$cinza_claro_3: #d7d7d7;
+
+@media only screen and (min-width: 320px) and (max-width: 460px) {
+    html {
+        font-size: 10px !important;
+
+        body {
+            .table {
+                max-width: 500% !important;
+            }
+
+            .header-internal {
+                .header-conteudo {
+                    flex-direction: column !important;
+
+                    .logos, .links {
+                        width: 100% !important;
+                    }
+
+                    .logos {
+                        padding: 2rem !important;
+                        margin-bottom: 1rem !important;
+                    }
+
+                    .links {
+                        ul {
+                            flex-direction: column !important;
+
+                            li {
+                                width: 100% !important;
+
+                                &:first-of-type {
+                                    margin-bottom: 1rem !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .site-wrapper {
+                .forehead {
+                    h2 {
+                        padding: 1rem !important;
+                    }
+                }
+
+                .box-login {
+                    width: 90% !important;
+
+                    .header-home {
+                        .logo-campanha {
+                            svg {
+                                width: 90%;
+                            }
+
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+
+                    .form-login {
+                        .inputs {
+                            .linha-form {
+                                .form-grupo {
+                                    label {
+                                        font-size: 1rem !important;
+                                    }
+
+                                    input {
+                                        padding: 1rem !important;
+                                    }
+                                }
+                            }
+                        }
+
+                        .btn-cadastre {
+                            font-size: 1.2rem !important;
+                        }
+                    }
+                }
+
+                .home_box {
+                    .quadro-home {
+                        width: calc((100% / 2) - 1rem);
+                    }
+                }
+
+                .viagem {
+                    .text-box,
+                    .banner-viagem {
+                        padding: 3rem !important;
+                    }
+                }
+
+                .wrapper {
+                    overflow: auto;
+                    padding: 2rem !important;
+
+                    div {
+                        overflow: auto;
+                    }
+
+                    .filtro_prod {
+                        li {
+                            width: 50% !important;
+                        }
+                    }
+
+                    .catalog {
+                        .product {
+                            width: calc((100% / 2) - 1rem);
+                        }
+                    }
+
+                    .wrap-rules {
+                        padding: 2rem !important;
+
+                        h2 {
+                            font-size: 1.8rem !important;
+                        }
+
+                        .texto {
+                            flex-direction: column !important;
+
+                            .coluna {
+                                width: 100% !important;
+                            }
+                        }
+                    }
+
+                    .formularios {
+                        .coluna-1, .coluna-2 {
+                            width: 100% !important;
+                        }
+                    }
+
+                }
+
+                .pedidos_feitos {
+                    .box-pedidos {
+                        flex-direction: column !important;
+                        overflow-y: hidden !important;
+
+                        div {
+                            width: 100% !important;
+                        }
+
+                        .descr {
+                            margin-bottom: 1rem !important;
+                        }
+
+                        .lista-pedidos {
+                            .orders {
+                                width: 300% !important;
+                            }
+
+                            .account-box {
+                                .order-resume {
+                                    ul {
+                                        li {
+                                            display: flex;
+                                            width: 100% !important;
+
+                                            p {
+                                                width: 50% !important;
+                                            }
+
+                                            .order-resume-text-info {
+                                                padding-left: 1rem !important;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .order-package {
+                                    .order-products {
+                                        .order-product {
+                                            display: flex;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .wrap-tables {
+                    overflow-y: hidden !important;
+
+                    .pontos_simples {
+                        width: 250%;
+                    }
+                }
+
+                .carrinho {
+                    flex-direction: column !important;
+
+                    .descr, .produtos_cart {
+                        width: 100% !important;
+                    }
+
+                    .product-cart {
+                        .product-cart-img {
+                            margin: 0 !important;
+                            padding: 0 !important;
+                            width: 25% !important;
+                        }
+
+                        .product-cart-description {
+                            margin: 0 !important;
+                            width: 50% !important;
+                        }
+                    }
+                }
+            }
+
+            .product-detail {
+                display: flex;
+                flex-direction: column !important;
+
+                picture {
+                    width: 100% !important;
+                    display: flex;
+
+                    img {
+                        height: 100% !important;
+                        width: auto !important;
+                        aspect-ratio: 1 / 1 !important;
+                        margin: 0 auto;
+                    }
+                }
+
+                .product-detail-description {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 760px) and (max-width: 920px) {
+    html {
+        font-size: 12px !important;
+
+        body {
+            .header-conteudo, .site-wrapper {
+                
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 920px) and (max-width: 1100px) {
+    html {
+        font-size: 14px !important;
+
+        body {
+            .header-conteudo, .site-wrapper {
+
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    html {
+        font-size: 14px !important;
+
+        body {
+            .header-conteudo, .forehead, .wrapper {
+                width: 1080px;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+body {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family: Poppins, Arial, Helvetica, sans-serif !important;
+    color: $cinza;
+    background-color: $cinza_claro_1 !important;
+    
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0 !important;
+        color: $cinza;
+    }    
+
+    a {
+        color: $cor_prim;
+        text-decoration: none !important;
+    }
+
+    .btn_padrao {
+        border-radius: .5rem;
+        padding: 1rem;
+        color: #fff !important;
+        outline: none;
+        border: 0 !important;
+        transition: .2s;
+    }
+
+    .btn_prim {
+        background-color: $cor_prim !important;
+        box-shadow: 0 1rem 2rem -10px $cor_prim;
+        -webkit-box-shadow: 0 1rem 2rem -10px $cor_prim;
+        -moz-box-shadow: 0 1rem 2rem -10px $cor_prim;
+
+        &:hover {
+            background-color: $cor_escuro_prim !important;
+        }
+    }
+
+    .btn_sec {
+        background-color: $cor_sec !important;
+        box-shadow: 0 1rem 2rem -10px $cor_sec;
+        -webkit-box-shadow: 0 1rem 2rem -10px $cor_sec;
+        -moz-box-shadow: 0 1rem 2rem -10px $cor_sec;
+
+        &:hover {
+            background-color: $cor_escuro_sec !important;
+        }
+    }
+
+    .table {
+        margin: 0 !important;
+    }
+
+    /* Menu */
+
+    .header-internal {
+        background-image: linear-gradient(to left, $cor_sec, $cor_prim), url("../../img/fundo_premios-03.png");
+        background-size: contain;
+        background-blend-mode: multiply;
+        backdrop-filter: opacity(.2);
+        -webkit-backdrop-filter: opacity(.2);
+        height: fit-content;
+        box-sizing: border-box;
+        padding: 1rem;
+        width: 100%;
+        z-index: 9997;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
+        
+        .header-conteudo {
+            display: flex;
+            height: fit-content;
+
+            div {
+                border-radius: .5rem !important;
+                overflow: hidden;
+            }
+
+            .logos {
+                width: calc(20% - 1rem);
+                margin-right: 1rem;
+                background-color: #fff;
+
+                .logo-campanha {
+                    height: 100%;
+                    display: flex;
+                    padding: 0 1rem;
+
+                    img {
+                        margin: auto;
+                        width: 50%;
+                    }
+
+                    svg {
+                        margin: auto;
+                        width: 35%;
+                        fill: $cor_prim !important;
+                    }
+                }
+            }
+
+            .links {
+                width: 80%;
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                overflow: hidden;
+                border-radius: 1rem;
+                background-color: #fff;
+
+                div, ul {
+                    padding: 1rem;
+                }
+
+                ul {
+                    width: 100%;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    
+                    li {
+                        list-style-type: none;
+                        font-size: .8rem;
+
+                        &:first-of-type {
+                            width: 40%;
+                        }
+
+                        span {
+                            font-size: 1.2rem !important;
+                            font-weight: 800;
+                        }
+                    }
+                }
+
+                .menu {
+                    width: calc(100% - 1rem);
+                    display: flex;
+                    justify-content: space-between;
+                    background-color: $preto;
+                    margin: .5rem;
+                    
+                    .nav-link {
+                        font-size: .8rem;
+                        color: #fff;
+                        display: inline-block;
+                        font-weight: 600;
+                        text-decoration: none;
+                        transition: .2s;
+
+                        &:hover {
+                            margin-top: -.25rem;
+                        }
+                    }
+                }                
+            }
+        }
+    }
+
+    /* Conteúdo */
+    .wrapper-login {
+        height: 100vh;
+        display: flex !important;
+        margin: auto !important;
+        background-color: rgba(0, 0, 0, 0) !important;
+    }
+
+    .site-wrapper {
+        padding: 2rem 1.5rem;
+        border-radius: 2rem;
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+
+        .wrapper {
+            padding: 1rem;
+            border-radius: 1rem;
+            background-color: white;
+            overflow: hidden;
+
+            div {
+                border-radius: .5rem !important;
+                overflow: hidden;
+            }
+
+            .nao-divulgado {
+                background-color: $cinza_claro_2 !important;
+                padding: 1rem !important;
+                border-radius: .5rem !important;
+                margin: 0 !important;
+                font-size: 1rem !important;
+            }           
+        }     
+        
+         /* Login */
+         .box-login {
+            width: 25rem;
+            padding: 3rem;
+            border-radius: 1.5rem;
+            background-color: #fff;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            
+            box-shadow: 0 1rem 2rem -10px $cinza_claro_3;
+            -webkit-box-shadow: 0 1rem 2rem -10px $cinza_claro_3;
+            -moz-box-shadow: 0 1rem 2rem -10px $cinza_claro_3;
+            
+            .header-home {
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+        
+                .logo-campanha {
+                    margin: 1rem auto 2rem auto !important;
+                    display: inline-block;
+                    width: 14rem;
+                    border-radius: 1.5rem;
+                    /*
+                    margin-bottom: 4rem !important;
+                    padding: 1.5rem 2rem;
+                    border: .3rem solid $cor_sec;
+
+                    box-shadow: 0 1rem 2rem -10px $cor_sec;
+                    -webkit-box-shadow: 0 1rem 2rem -10px $cor_sec;
+                    -moz-box-shadow: 0 1rem 2rem -10px $cor_sec;
+                    */
+                    img {
+                        width: 75%;
+                        margin-top: 1.5rem;
+                    }
+
+                    svg {
+                        width: 70%;
+                        fill: $cor_prim !important;
+                    }
+                }
+            }
+
+            form {
+                height: 100%;
+
+                h3 {
+                    color: $cor_prim;
+                    font-weight: 300;
+                    margin-bottom: 3rem !important;
+                    text-align: center;
+                }
+
+                .inputs {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    margin: 1rem 0;
+
+                    .linha-form {
+                        .form-grupo {
+                            display: flex;
+                            flex-direction: column;
+
+                            label {
+                                color: #4F4F4F;
+                                font-size: .8rem;
+                                font-weight: normal;
+                            }
+
+                            input {
+                                padding: .5rem;
+                                outline: none;
+                                border: .05rem solid $cinza_claro_3 !important;
+                                border-radius: .5rem;
+                                font-size: .8rem;
+                            }
+                        }
+
+                        &:first-child {
+                            margin-bottom: 1rem;
+                        }
+                    }
+                }
+
+                button {
+                    width: 100%;
+                    bottom: 0;
+                    margin-top: 2rem !important;
+                }
+
+                .btn-cadastre {
+                    font-size: .8rem;
+                    margin-top: 2rem;
+                    margin-bottom: 0 !important;
+
+                    a {
+                        color: $cor_prim;
+                    }
+                }
+            }
+        }
+
+        /* Cabeçalho */
+        .forehead {
+            margin-bottom: 2rem !important;
+            height: 0;
+            border-radius: 1rem;
+            overflow: hidden;
+            padding-bottom: 20rem;
+            position: relative;
+            background-size: cover !important;
+            background-position: center !important;
+
+            h2 {
+                background-color: $cor_prim;
+                color: #fff;
+                font-size: 1.5rem;
+                padding: 1rem 15rem 1rem 1rem;
+                display: inline-block;
+                margin-top: 3rem !important;
+            }
+        }
+        
+        .forehead-profile {
+            background: url("https://res.cloudinary.com/maxxpremios/image/upload/v1602796575/banner-dados-mater.jpg") no-repeat;
+        }
+
+        .forehead-rules {
+            background: url("../../img/Regulamento_2_site_maxx.jpg") no-repeat;
+        }
+
+        .forehead-performance {
+            background: url("https://res.cloudinary.com/maxxpremios/image/upload/c_crop,f_auto,g_south,h_400,q_auto:good,w_1381,y_300/v1520847077/i/performance.jpg") no-repeat;
+        }
+
+        .forehead-ranking {
+            background: url("../../img/h/i_ranking.jpg") no-repeat;
+        }
+
+        .forehead-catalog {
+            background: url("https://res.cloudinary.com/maxxpremios/image/upload/c_crop,f_auto,h_400,q_auto:good,w_1386/v1520847080/i/catalog2.jpg") no-repeat;
+        }
+
+        .forehead-training {
+            background: url("../../img/mulher-trabalhando-no-escritorio.jpg") no-repeat;
+        }
+
+        .forehead-goals {
+            background: url("https://res.cloudinary.com/maxxpremios/image/upload/c_scale,w_1380/c_crop,h_400,w_1380/v1523582747/i/metas.jpg") no-repeat;
+        }
+
+        .forehead-points {
+            background: url("https://res.cloudinary.com/maxxpremios/image/upload/c_scale,w_1380/c_crop,h_400,w_1380/v1523582747/i/points.jpg") no-repeat;
+        }
+
+        .forehead-pedidos {
+            background: url("https://res.cloudinary.com/maxxpremios/image/upload/v1602797843/banner-pedidos-mater.jpg") no-repeat;
+            background-size: 200% !important;
+            background-position-x: right !important;
+        }
+
+        /* Home */
+        .comunicados-home {
+            flex-direction: column;
+            position: fixed;
+            z-index: 9999;
+            background-color: #fff;
+            padding: 1rem;
+            width: 40rem;
+            top: 15vh;
+            bottom: 15vh;
+            left: 0;
+            right: 0;
+            margin: auto;
+            overflow: hidden;
+            height: 70vh !important;
+        
+            -webkit-box-shadow: 7px 4px 29px 0px rgba(0, 0, 0, 0.18);
+            -moz-box-shadow: 7px 4px 29px 0px rgba(0, 0, 0, 0.18);
+            box-shadow: 7px 4px 29px 0px rgba(0, 0, 0, 0.18);
+            border-radius: 1rem;            
+
+            .comu-home-head {
+                display: flex;
+                justify-content: space-between;
+                height: 5rem;
+                
+                img {
+                    height: 4rem;
+                }
+
+                svg {
+                    height: 4rem;
+                }
+                
+                .close {
+                    font-size: 1.2rem;
+                    line-height: 2rem;
+                }
+            }
+
+            .comunicados {
+                border-radius: .5rem;
+                margin: 0 !important;
+                width: 100% !important;
+                min-height: calc(100% - 3rem);
+            }
+        }
+
+        .filtro_preto {
+            background-color: #000;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 9998;
+            opacity: .8;
+        }
+
+        .home_box {
+            display: flex;
+            flex-wrap: wrap;
+
+            .quadro-home {
+                width: calc((100% / 4) - 1rem);
+                aspect-ratio: 1 / 1;
+                margin: .5rem;
+                overflow: hidden;
+
+                .home-box {
+                    display: inline-block;
+                    position: relative;
+                    aspect-ratio: 1 / 1;
+                    height: 100%;
+                    background-color: $cor_prim;
+                    background-size: cover;
+                    background-position: center;
+
+                    p {
+                        position: absolute;
+                        top: 1.5rem;
+                        left: 1.5rem;
+                        width: calc(100% - 3rem);
+
+                        svg {
+                            height: 2rem;
+                            stroke: #fff;
+                        }
+
+                        .home-box-title {
+                            color: #fff;
+                            display: block;
+                            font-size: 1.2rem;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    .filtro {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0) 45%);
+                    }
+
+                }
+            }                
+
+            #pontos .home-box {
+                background-image: url("../../img/h/banner-faixa-clientes-compressor.jpg");
+            }
+            
+            #viagem .home-box {
+                background-image: url("../../img/h/brasileiro-e3f91d8d.webp");
+            }
+            
+            #premios .home-box {
+                background-image: url("../../img/h/catalog2.webp");
+                background-position-x: -200px;
+            }
+            
+            #regulamento .home-box {
+                background-image: url("../../img/h/regras.jpg");
+            }
+            
+            #dados .home-box {
+                background-image: url("../../img/h/banner-dados.jpg");
+            }
+            
+            #comunicados .home-box {
+                background-image: url("../../img/h/envelope-marrom-liso-com-cartao-de-mensagem-em-branco.jpg");
+            }
+
+            #rank .home-box {
+                background-image: url("../../img/h/i_ranking.jpg");
+            }
+            
+            #pedidos .home-box {
+                background-image: url("../../img/h/banner-pedidos.jpg");
+                background-position-x: right;
+            }
+            
+            #treinamento .home-box {
+                background-image: url("../../img/h/mulher-trabalhando-no-escritorio.jpg");
+            }
+        }
+
+        /* Prêmios */
+
+        .filtro_prod {
+            list-style: none;
+            display: flex;
+            padding: 0;
+
+            .drop-1, .drop-2 {
+                margin-right: 1rem;
+                background-color: $cor_prim;
+                padding: .5rem 2rem;
+                border-radius: .5rem;
+
+                a {
+                    color: #fff !important;
+                    text-decoration: none;
+                    font-size: 1rem;
+                }
+
+                .dropdown-menu {
+                    li {
+                        width: 100%;
+
+                        a {
+                            color: $cinza !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .catalog {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+
+            .product {
+                width: calc(20% - 1rem);
+                margin: .5rem;
+                background-color: $cinza_claro_1;
+                border-radius: 1rem;
+                padding: 1rem;
+                cursor: pointer;
+                transition: .2s;
+
+                &:hover {
+                    padding: .8rem 1rem 1rem 1rem;
+                }
+
+                a {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    text-decoration: none;
+
+                    picture {
+                        aspect-ratio: 1 / 1;
+                        width: 100%;
+                        background-color: #fff;
+                        border-radius: .5rem;
+                        padding: 10%;
+                        overflow: hidden;
+                        margin-bottom: 2rem;
+                        box-sizing: border-box;
+                        display: flex;
+    
+                        img {
+                            max-width: 100%;
+                            height: 100%;
+                            margin: auto;
+                        }
+                    }
+
+                    h6 {
+                        height: 1rem;
+                        font-size: .6rem;
+                        line-height: .8rem;
+                        margin-bottom: 0;
+                        color: $cor_escuro_sec;
+                    }
+    
+                    h4 {
+                        height: 5rem;
+                        font-size: 1rem;
+                        line-height: 1.5rem;
+                        margin-bottom: 1rem;
+                        color: $preto;
+                    }
+
+                    div {
+                        display: flex;
+                        justify-content: space-between;
+                        height: 2.5rem;
+
+                        p {
+                            font-size: .8rem;
+                            color: $cinza;
+                            margin: 0 !important;
+
+                            strong {
+                                font-size: 1rem;
+                            }
+                        }
+
+                        span {
+                            display: flex;
+                            background-color: $cor_prim;
+                            border-radius: .5rem;
+                            aspect-ratio: 1 / 1;
+                            height: 100%;
+
+                            svg {
+                                stroke: #fff;
+                                width: 50%;
+                                margin: auto;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        text-decoration: none;
+                        color: $cinza !important;
+                    }
+                }
+            }
+
+            .modal {
+                .modal-dialog {
+                    display: flex;
+                    height: 100%;
+                    margin: 0 auto;
+
+                    .modal-content {
+                        margin: auto;
+                        height: 70vh;
+                        width: 100%;
+                        overflow: hidden;
+                        box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .5);
+                        border: 0 !important;
+                        border-radius: 2rem;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        div {
+                            padding: 2rem;
+                        }
+
+                        .modal-header {
+                            height: 15%;
+                            max-height: 6rem;
+                        }
+
+                        .product-detail {
+                            height: 70%;
+
+                            picture {
+                                height: 100%;
+                                aspect-ratio: 1 / 1;
+                                overflow: hidden;
+                                display: inline-block;
+                                vertical-align: top;
+                                padding: 1rem;
+                                width: 49%;
+
+                                img {
+                                    height: 100%;
+                                    width: auto;
+                                    margin: 0 auto;
+                                }
+                            }
+
+                            .product-detail-description {
+                                background-color: $cinza_claro_1;
+                                border-radius: 1rem;
+                                height: 100%;
+                                display: inline-block;
+                                width: 49%;
+
+                                .points {
+                                    font-size: 1.2rem;
+                                    font-weight: 500;
+
+                                    strong {
+                                        font-size: 1.8rem;
+                                    }
+                                }
+                            }
+                        }
+
+                        .modal-footer {
+                            height: 15%;
+                            border: 0 !important;
+                            display: flex;
+                            justify-content: flex-end;
+                            align-items: flex-end;
+
+                            button {
+                                max-height: 4rem;
+                            }
+
+                            .btn-action-go,
+                            .btn_sec {
+                                background-color: $cor_prim;
+                                color: #fff !important;
+
+                                a {
+                                    color: #fff !important;
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    }                    
+                }
+            }
+        }
+
+        .pagination-products {
+            margin: 0 1rem;
+
+            li {
+                a, span {
+                    color: $cinza;
+                }
+            }
+
+            .active  {
+                a {
+                    color: #fff;
+                    border-color: $cor_prim !important;
+                    background-color: $cor_prim !important;
+                }
+            }
+        }
+
+        /* Viagem */
+
+        .viagem {
+            div {                
+                position: relative;
+                opacity: 0.9;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .banner-viagem {
+                padding: 2rem 10rem !important;
+            }
+
+            .text-box {
+                padding: 5rem 10rem;
+                box-sizing: border-box;
+                text-align: center;
+
+                h2, h3 {
+                    color: $cor_prim !important;
+                    margin-bottom: 1rem !important;
+                }
+            }
+
+            .bgimg {
+                height: 600px !important;
+            }
+
+            .bgimg-1-can {
+                background-image: url("../../img/v/can/voenews.90-104-1536x1078.jpg");
+            }
+
+            .bgimg-2-can {
+                background-image: url("../../img/v/can/tudo-sobre-cancun-placa.jpg");
+            }
+
+            .bgimg-3-can {
+                background-image: url("../../img/v/can/pool-with-hammock-area.jpg");
+            }
+
+            .bgimg-4-can {
+                background-image: url("../../img/v/can/pyramid-2826190_1280.jpg");
+            }
+
+            .bgimg-5-can {
+                background-image: url("../../img/v/can/pexels-tellez-erik-12956666.jpg");
+            }
+        }
+
+        /* Carrinho */
+
+        .carrinho {
+            display: flex;
+
+            .descr {
+                width: calc(30% - 2rem) !important;
+                margin-right: 2rem;
+                background-color: $cinza_claro_1;
+                padding: 2rem;
+                border-radius: 1rem;
+
+                h2, h4 {
+                    margin-bottom: 1rem !important;
+                }
+
+                p, ul {
+                    margin-bottom: 4rem;
+                }
+
+                ul {
+                    padding: 0 !important;
+
+                    li {
+                        text-decoration: none;
+                        list-style-type: none;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                }
+            }
+
+            .produtos_cart {
+                width: 70% !important;
+                display: flex;
+                flex-direction: column;
+
+                .product-cart {
+                    display: flex;
+                    border-bottom: .1rem solid $cinza_claro_1;
+                    padding: 1.5rem 0;
+                    margin: 1.5rem 0;
+                    
+                    .product-cart-img,
+                    .product-cart-description,
+                    .product-cart-points {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+
+                    .product-cart-img {
+                        display: flex;
+                        margin-right: 2rem;
+                        border-right: .1rem solid $cinza_claro_1;
+                        width: 10% !important;
+                        aspect-ratio: 1 / 1;
+
+                        img {
+                            width: 100%;
+                            margin: auto;
+                        }
+                    }
+
+                    .product-cart-description {
+                        width: 60% !important;
+                        border-right: .1rem solid $cinza_claro_1;
+                        padding-right: 2rem;
+                        margin-right: 2rem;
+
+                        h4 {
+                            color: $cor_escuro_prim;
+                            margin-top: 0;
+                        }
+
+                        p:first-of-type {
+                            font-size: 1rem;
+                        }
+                    }
+                    
+                    .product-cart-points {
+                        display: flex;
+                        align-items: center;
+                        font-weight: 600;
+                        width: 30% !important;
+                        
+                        .points {
+                            text-align: right;
+                            font-size: 1.2rem;
+                            width: 90%;
+                        }
+                    }
+                }
+
+                .detalhes_pedido {
+                    bottom: 0;
+                    margin-top: auto;
+
+                    .product-cart-subtotal {
+                        text-align: right;
+                        font-size: 1rem;
+                    }
+    
+                    .product-cart-total {
+                        background-color: $preto;
+                        color: #fff;
+                        border-radius: .5rem;
+                        padding: 1.5rem;
+                        text-align: right;
+    
+                        p {
+                            text-align: right;
+                            padding: 1.5rem;
+                            margin: 0 !important;
+                        }
+                    }
+
+                    .form-order {
+                        .btn_padrao {
+                            margin-top: 1rem;
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+
+        /* Regulamento */
+
+        .wrap-rules {
+            font-size: 1.2rem;
+            padding: 3rem;
+            background-color: $cinza_claro_1;
+            border-radius: 1rem;
+            width: 100% !important;
+            
+            h2, h3, h6 {
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+                font-weight: 600;
+
+                &:first-of-type{
+                    margin-bottom: 1rem !important;
+                }
+
+                &:last-of-type {
+                    margin-top: 2rem !important;
+                }
+            }
+
+            h6 {
+                margin-bottom: 2rem !important;
+            }
+
+            .texto {
+                display: flex;
+                justify-content: space-between;
+                margin: 3rem 0;
+                font-size: 1rem;
+
+                .coluna {
+                    width: 48%;
+
+                    h3 {
+                        font-size: 2rem !important;
+                    }
+
+                    h5 {
+                        color: $cor_prim;
+                        margin-top: 2rem;
+                        font-weight: 600;
+                        text-align: justify;
+                    }
+        
+                    p {
+                        margin: 1rem;
+                        text-align: justify;
+                    }
+
+                    .sub_1 {
+                        margin-left: 3rem;
+                    }
+
+                    .sub_2 {
+                        margin-left: 6rem;
+                    }
+                }
+            }
+        }
+
+        /* Pontos */
+
+        .wrap-tables {
+            h2 {
+                font-weight: 600;
+                font-size: 2rem;
+                margin-top: 1rem !important;
+            }
+
+            .table-pontos {
+                border-radius: 1rem;
+                overflow: hidden;
+
+                thead {
+                    .cabecalho_table {
+                        width: 100%;
+                        background-color: $cor_prim;
+                        border-color: $cor_prim;
+                        border-style: solid;
+                        border-width: 0rem .2rem 0rem .2rem;
+
+                        th {
+                            font-size: .8rem;
+                            box-sizing: border-box;
+                            padding: 1rem;
+                            color: #fff;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        border-color: $cinza_claro_3;
+                        border-style: solid;
+                        border-width: .1rem .2rem .1rem .2rem;
+
+                        &:hover {
+                            border-left-color: $cor_sec;
+                            border-width: .1rem .2rem .1rem .2rem;
+                        }
+
+                        td {
+                            width: calc(100% / 8) !important;
+                            padding: 0 !important;
+                            transition: .2s;
+                            font-size: .8rem;
+                            border: 1px solid #ddd;
+
+                            .accordions {
+                                color: $cinza;
+                                cursor: pointer;
+                                width: 100%;
+                                text-align: left;
+                                border: none;
+                                outline: none;
+                                                                
+                                div {
+                                    label {
+                                        display: flex;
+                                        width: 100% !important;
+                                        margin: 0 !important;
+                                        cursor: pointer;
+                                        transition: .2s;
+
+                                        &:hover {
+                                            background-color: $cinza_claro_1;
+                                        }
+                                        
+                                        li {
+                                            font-size: 1.5rem;
+                                            font-weight: 400;
+                                            width: calc(97% / 6);
+                                            padding: 1rem 2rem;
+                                            display: inline-block;
+                                            font-size: 1.5rem;
+                                        }
+                                        
+                                        svg {
+                                            stroke: $cor_prim;
+                                            margin: auto;
+                                            padding: .5rem;
+                                            transition: .2s;
+                                        }
+
+                                        :nth-child(1) {
+                                            font-weight: 600;
+                                        }
+                                    }
+
+                                    .accordion-item {
+                                        display: none;
+                                    }
+
+                                    .accordion-content {
+                                        display: none;
+                                        padding-bottom: 1rem;
+                                        overflow: hidden;
+                                        margin: 0;
+                                        transition: .2s;
+
+                                        .sub_accordions {
+                                            padding: 0 1rem;
+
+                                            .conteudo_pontos { 
+                                                border-radius: 1rem;
+                                                width: 50%;
+                                                padding: .5rem;
+                                                margin: 0;
+                                                position: relative;
+                                                float: left;
+    
+                                                &:nth-of-type(2), &:nth-of-type(3) {
+                                                    float: left;
+                                                    width: 25%;
+                                                }
+
+                                                .accordions_linhaProdutos {
+                                                    .linhaProdutos {
+                                                        width: 100% !important;
+                                                        margin: .5rem 0;
+                                                        border-radius: .75rem;
+                                                        display: flex;
+                                                        flex-direction: column;
+                                                        padding: 1rem;
+                                                        background-color: $cinza_claro_2;
+                                                        transition: .2s;
+
+                                                        &:hover {
+                                                            background-color: $cor_reticula_sec;
+
+                                                            label {
+                                                                color: $cor_escuro_sec;
+                                                                background-color: rgba(0, 0, 0, 0) !important;
+                                                            }
+
+                                                            .accordion_linhaProd-content {
+                                                                border-top: .1rem solid rgba($cor_escuro_sec, .2);
+                                                            }
+                                                        }
+                                                        
+                                                        label {
+                                                            display: flex;
+                                                            margin: 0 !important;
+                                                            cursor: pointer;
+                                                            height: 2rem;
+                                                            
+                                                            li {
+                                                                width: 100% !important;
+                                                                list-style-type: none;
+                                                                padding: 0 !important;
+                                                                font-weight: 600;
+                                                                font-size: 1.2rem;
+                                                                height: 2rem;
+                                                                margin: auto 0;
+                                                            }
+
+                                                            :nth-child(2) {
+                                                                text-align: right;
+                                                            }
+                                                        }
+
+                                                        .accordion_linhaProd-content {
+                                                            padding: 1rem 1rem 0 1rem;
+                                                            display: none;
+                                                            margin-top: .5rem;
+                                                            border-top: .1rem solid $cinza_claro_3;
+                                                            transition: .2s;
+
+                                                            .prod-linha {
+                                                                display: flex;
+                                                                font-size: 1rem;
+
+                                                                li {
+                                                                    display: inline;
+                                                                    margin: .5rem 0;
+                                                                    overflow: hidden;
+                                                                    max-height: 1.5rem;
+                                                                }
+
+                                                                .col-1 {
+                                                                    width: 50%;
+                                                                    padding-right: 2rem;
+                                                                }
+
+                                                                .col-2 {
+                                                                    width: 25%;
+                                                                    text-align: center;
+                                                                }
+
+                                                                .col-3 {
+                                                                    width: 75%;
+                                                                }
+
+                                                                .col-pts {
+                                                                    text-align: right;
+                                                                }
+
+                                                                .head_tab {
+                                                                    font-weight: 600;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                tfoot {
+                    background-color: $preto;
+                    border-color: $preto;
+                    border-style: solid;
+                    border-width: 0rem .2rem 0rem .2rem;
+
+                    .rodape_tab {
+                        width: 98%;
+                        color: #fff;
+
+                        td {
+                            padding: 1rem;
+                            font-weight: 600;
+                            font-size: .8rem;
+                            vertical-align: bottom !important;
+
+                            p {
+                                font-size: .6rem !important;
+                                margin: 0 !important;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .pontos_simples {
+                thead {
+                    tr {
+                        th {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        td {
+                            padding: 1rem !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        /* Comunicados */
+
+        .wrap-comunicados {
+            display: flex;
+            
+            .descr {
+                width: 30% !important;
+
+                h2 {
+                    font-weight: 600;
+                }
+            }
+
+            .comunicados-bloco {
+                width: 70% !important;
+            }            
+
+            .comunicados {
+                border-top: 2rem solid $cor_prim;
+                padding: 3rem;
+                width: calc((100% / 2) - 2rem);
+                background-color: $cinza_claro_1;
+                border-radius: .5rem;
+                font-size: 1.2rem;
+                margin: 0 1rem 3rem 1rem;
+                height: fit-content;
+                overflow-x: hidden;
+                text-align: center;
+                position: relative;
+                float: left;
+
+                .data_comunicado {
+                    color: $cor_prim;
+                    font-size: 1rem;
+                }
+
+                h4 {
+                    margin-bottom: 3rem !important;
+                }
+
+                p {
+                    font-size: .8rem;
+                    line-height: 1.2rem;
+                    color: $cinza;
+                }
+            }
+        }
+
+        /* Ranking */
+
+        .ranking {
+            div {
+                h2 {
+                    margin-bottom: 1.5rem !important;
+                }
+                
+                .info {
+                    color: $preto;
+                    margin-bottom: 2rem;
+                }
+
+                .disclaimer {
+                    color: $cor_prim;
+                }
+
+                .ranking-table {
+                    width: 100%;
+
+                    thead {
+                        tr {
+                            th {
+                                padding: 2rem 0 !important;
+                            }
+                        }
+                    }
+
+                    tbody {
+
+                        td, th {
+                            padding: 1rem;
+                            font-size: 1rem;
+                        }
+
+                        tr {
+                            &:nth-child(1) {
+                                background-color: $cor_prim;
+                                font-weight: bold;
+                                color: #fff;
+                            }
+
+                            &:nth-child(2) {
+                                background-color: $cor_sec;
+                                font-weight: bold;
+                                color: $preto !important;
+                            }
+
+                            &:nth-child(3), &:nth-child(4) {
+                                background-color: $cor_reticula_sec;
+                                font-weight: bold;
+                                color: $preto !important;
+                            }
+                        }
+                    }
+
+                    .rank, .public {
+                        text-align: center;
+                    }
+
+                    .percent {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        /* Seus Dados */
+
+        .wrapper-dados {
+            padding: 2rem !important;
+            display: flex;
+            flex-direction: column;
+
+            .introducao-perfil {
+                text-align: center;
+            }
+            
+            .formularios {
+                position: relative;
+                //background-color: red;
+                float: left;
+                width: 100%;
+                margin: 2rem 0;
+
+                .coluna {
+                    position: relative;
+    
+                    .perfil, .endereco, .familia {
+                        padding: 1.5rem;
+                        border: .1rem solid $cinza_claro_3;
+                        border-radius: 1rem;
+                        margin-bottom: 2rem;                        
+    
+                        fieldset {
+                            h3 {
+                                font-weight: 600;
+                            }
+
+                            div, address {
+                                display: flex;
+                                flex-direction: column;
+                                margin: 2rem 0 !important;
+        
+                                p {
+                                    margin: .5rem 0 !important;
+                                    font-size: 1rem;
+                                }
+                            }
+                        }
+
+                        form {
+                            display: flex;
+                            justify-content: space-between;
+                            width: 100%;
+    
+                            fieldset {
+                                width: 48%;
+
+                                .form-perfil {
+                                    margin: 0 !important;
+                                }
+            
+                                span {
+                                    font-size: .8rem;
+                                }
+            
+                                a {
+                                    font-size: .8rem !important;
+
+                                    &:hover {
+                                        color: $cor_escuro_prim;
+                                    }
+                                }
+    
+                                .linha-form {
+                                    margin: .75rem 0 !important;
+    
+                                    label {
+                                        font-size: 1rem;
+                                        font-weight: 400;
+                                    }
+    
+                                    input, select {
+                                        height: 3rem;
+                                        border: .1rem solid $cinza_claro_3;
+                                        border-radius: .5rem;
+                                        font-size: 1rem;
+                                        padding: 0 1rem;
+    
+                                        option {
+                                            font-size: 1rem;
+                                        }
+                                    }
+                                }
+    
+                                .btn_prim {
+                                    width: 70%;
+                                    font-size: 1rem;
+                                }
+                            }
+    
+                            .familiares {
+                                width: 48%;
+    
+                                .lista-familia {
+                                    background-color: $cinza_claro_1;
+                                    border-radius: 1rem;
+                                    margin-bottom: 1rem !important;
+                                    padding: 1.5rem;
+                                    font-size: 1rem;
+                                }
+                            }
+                        }
+                    }    
+
+                    .form-register-profile {
+                        margin-top: 3rem !important;
+
+                        fieldset {
+                            width: 100% !important;
+
+                            button {
+                                width: 100% !important;
+                            }
+                        }
+                    }
+
+                    .form-register-address {
+                        fieldset {
+                            width: 100% !important;
+
+                            button {
+                                width: 100% !important;
+                            }
+
+                            .linha-form {
+                                div {
+                                    margin: 1rem 0 !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                    
+                .coluna-1 {
+                    width: calc((100% / 3) - 1%) !important;
+                    float: left;
+                }
+    
+                .coluna-2 {
+                    width: calc(((100% / 3) * 2) - 1%) !important;
+                    float: right;
+                }
+            }
+
+            .btn_padrao {
+                margin: 0 auto !important;
+                width: 40%;
+                text-align: center;
+
+                &:hover {
+                    text-decoration: none;
+                    color: #fff;
+                }
+            }
+        }
+
+        /* Treinamento */
+
+        #treinament {
+            display: flex;
+            justify-content: space-between;
+            
+            .box-treinamento {
+                width: 33%;
+                padding: 2rem;
+
+                a {
+                    text-decoration: none;
+
+                    h4 {
+                        height: 6rem;
+                    }
+
+                    img {
+                        width: 100%;
+                        box-shadow: .1rem .1rem .4rem 0 rgba(0, 0, 0, .2);
+                        border-radius: 1rem;
+                    }
+                }
+            }
+        }
+
+        /* Pedidos */ 
+
+        .pedidos_feitos {            
+            .box-pedidos {
+                display: flex;
+                width: 100%;
+
+                .descr {
+                    width: 30%;
+                    padding-right: 3rem;
+
+                    h2, h4 {
+                        margin-bottom: 1rem !important;
+                    }
+                }
+
+                .lista-pedidos {
+                    width: 70%;
+
+                    .page-title {
+                        color: $cor_prim;
+                    }
+
+                    .orders {
+                        margin-top: 2rem !important;
+
+                        .orders-body {
+                            tr {
+                                #pedido_vazio {
+                                    a {
+                                        color: #fff !important;
+                                        font-size: 1rem;
+                                    }
+                                }
+                            }
+
+                            td {
+                                padding: 2rem 1rem !important; 
+                            }
+                        }
+                    }
+
+                    .account-box {
+                        .order-resume {
+                            ul {
+                                .orders-resume-item-address {
+                                    .order-resume-text-info {
+                                        font-size: 1.2rem;
+
+                                        ul {
+                                            padding: 0 !important;
+
+                                            li {
+                                                list-style-type: none;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Cadastro */
+
+    .form-cadastro {
+        margin: 5rem auto;
+        padding: 3rem;
+
+        form {
+            width: 40rem !important;
+            padding: 3rem !important;
+
+            .campos-form {
+                h3 {
+                    margin-bottom: 1rem !important;
+                    font-size: 1.2rem;
+                    text-align: center;
+                    line-height: 1.8rem !important;
+
+                    strong {
+                        color: $cor_escuro_prim;
+                        font-size: 1.5rem;
+                    }
+                }
+
+                .voltar {
+                    text-align: center;
+                    width: 100%;
+                    font-size: 1rem !important;
+                    margin-bottom: 2rem;
+                }
+
+                .alert {
+                    text-align: center;
+
+                    a {
+                        text-decoration: none;
+                    }
+                }
+
+                .linha-form {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 1rem 0;
+                    border-radius: 0 !important;
+
+                    .coluna-form {
+                        display: flex;
+                        justify-content: space-between;
+                        border-radius: 0 !important;
+
+                        div {
+                            width: 48%;
+                            border-radius: 0 !important;
+
+                            input, select {
+                                width: 100% !important;
+                            }
+                        }
+                    }
+
+                    label {
+                        font-size: 1rem;
+                    }
+
+                    input, select {
+                        padding: 1rem;
+                        font-size: 1rem;
+                        border: .1rem solid $cinza_claro_3;
+                        border-radius: .3rem;
+
+                        &::placeholder {
+                            color: $cinza_claro_3;
+                        }
+                    }
+
+                    #cargo {
+                        width: 100%;                        
+                    }
+                }
+
+                .alertCPF, .alertEmail {
+                    label {
+                        color: #990000 !important;
+                    }
+
+                    input {
+                        border-color: #990000 !important;
+                    }
+                }                    
+
+                h6 {
+                    font-size: .8rem;
+                    margin: 2rem 0 !important;
+                    display: flex;
+                    align-items: flex-end;
+
+                    input {
+                        margin: 0 !important;
+                        margin-right: .5rem !important;
+                        aspect-ratio: 1 / 1;
+                    }
+                    
+                    p {
+                        margin: 0 !important;
+                    }
+                }
+
+                button {
+                    width: 100% !important;
+                    cursor: not-allowed;
+                    background-color: $cinza_claro_3;
+                }
+                
+                .desativado {
+                    cursor: not-allowed;
+                    background-color: $cinza_claro_3 !important;
+                    box-shadow: none !important;
+                    -webkit-box-shadow: none !important;
+                    -moz-box-shadow: none !important;
+                }
+                
+                .ativado {
+                    cursor: pointer !important;
+                }
+            }
+        }
+    }
+
+    /* Rodapé */
+
+    .logos_group {
+        margin: 8rem auto;
+
+        .logo_farmacias, .logo_produtos {
+            padding: 3rem 0 !important;
+
+            h5 {
+                text-align: center;
+                font-weight: 700;
+            }
+        
+            .linha_logos {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                width: fit-content;
+                margin: 0 auto;
+    
+                div {
+                    width: 11rem;
+                    padding: .5rem;
+                    display: flex;
+                    margin: 0 0 1rem 0 !important;
+    
+                    img {
+                        width: 80%;
+                        margin: auto;
+                    }
+
+                    h5 {
+                        width: 100%;
+                        text-align: center;
+                        font-weight: 700;
+                        margin: auto 0 !important;
+                        text-shadow: .2rem .2rem .2rem rgba(0, 0, 0, .2);
+                    }
+                }
+            }
+        }
+    }
+}

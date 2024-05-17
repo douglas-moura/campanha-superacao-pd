@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "feather-icons": "^4.29.1"
+  },
+  "devDependencies": {
+    "node-sass": "^9.0.0",
+    "sass": "^1.75.0"
+  },
+  "scripts" : {
+     "node-sass": "node-sass -watch -include-path sass -o css"
+  }
+}

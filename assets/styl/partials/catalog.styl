@@ -1,0 +1,121 @@
+.catalog
+  display: flex;
+  flex-wrap: wrap;
+
+.catalog-heading
+  font-size 20px
+  color $primary
+  margin 15px
+  text-align: center;
+
+.pagination-products
+  margin 10px
+  &>li>a
+  &>li>span
+    color $primary
+
+  &>.active>a
+  &>.active>a:focus
+  &>.active>a:hover
+  &>.active>span
+  &>.active>span:focus
+  &>.active>span:hover
+      background-color: $primary
+      border-color: $primary
+
+.product
+  width calc(16% - 5px)
+  // display inline-block
+  margin 10px 5px
+  // padding 15px
+  // min-height 380px
+  // vertical-align bottom
+  picture
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden;
+    display: inline-block;
+
+    img
+      width 100%
+  h4
+    min-height 39px
+    color: $primary
+  p
+    color: #555;
+    margin: 3px 0;
+    vertical-align: baseline;
+    text-align: left;
+    line-height 1em
+  a:hover
+    text-decoration none
+    h4
+    p
+      color $secondary
+    img
+      opacity 0.8
+
+.product-detail
+  picture
+    display inline-block
+    vertical-align top
+    width 50%
+    padding 10px
+    img
+      width 100%
+
+  .product-detail-description
+    display inline-block
+    width calc(50% - 15px);
+    h4
+      color: $primary;
+      min-height 60px
+      font-size: 20px
+
+    p.text
+      padding 10px
+      background #f6f6f6;
+      color: #222;
+      width
+
+    p.points
+      font-size: 16px;
+      font-weight: 500;
+      color: #555;
+
+
+  @media (max-width: 600px)
+    picture
+      width 100%
+    .product-detail-description
+      width 100%
+      padding 15px
+
+@media (max-width: 1230px)
+  .product
+    width calc(20% - 10px)
+
+@media (max-width: 1030px)
+  .product
+    width calc(25% - 10px)
+
+@media (max-width: 800px)
+  .product
+    width calc(33% - 10px)
+
+@media (max-width: 600px)
+  .product
+    width calc(50% - 10px)
+
+@media (max-width: 380px)
+  .product
+    width 100%
+
+@media (max-width: 700px)
+  .product_detail
+    .product-detail-description
+      width 100%
+    picture
+      width 100%
+      img
+        min-height: auto;

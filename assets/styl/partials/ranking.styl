@@ -1,0 +1,51 @@
+$stripeEven = #ffe444
+$stripeOdd = #fff7d1
+
+$stripeFirst = #6857b1
+$stripeSencond = #7766bb
+$stripeThird = #8877cc
+
+.ranking-table
+  width 100%
+  td
+  th
+    padding 20px 20px
+    font-size 17px
+    @media (max-width: 600px)
+      padding 10px 2px
+      font-size 14px
+
+  tbody tr th
+    color $stripeThird
+
+  tbody tr
+    background-color $stripeEven
+    &:nth-child(odd)
+      background-color $stripeOdd
+    &:nth-child(1)
+      background-color $stripeFirst
+      font-weight bold
+      color white
+    &:nth-child(2)
+      background-color $stripeSencond
+      font-weight bold
+      color white
+    &:nth-child(3)
+      background-color $stripeThird
+      font-weight bold
+      color white
+
+  .rank
+  .public
+    text-align center
+
+  .percent
+    text-align right
+
+
+.ranking-col
+  .info
+    color $textColor
+    margin-bottom 20px
+  .disclaimer
+    color $primary

@@ -1,0 +1,119 @@
+
+.viagem
+
+  .bgimg-1,
+  .bgimg-2,
+  .bgimg-3,
+  .bgimg-4,
+  .bgimg-5,
+  .bgimg-letras {
+    position: relative;
+    opacity: 0.9;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .bgimg-tripa
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+
+
+  .bgimg-letras {
+    background-image: url("https://res.cloudinary.com/maxxpremios/image/upload/f_auto,q_auto/v1520499573/v/cancun-letras.png");
+    padding-bottom 50%
+  }
+
+  .bgimg-1 {
+    background-image: url("https://res.cloudinary.com/maxxpremios/image/upload/f_auto,q_auto/v1520499572/v/cancun-letras.png");
+    min-height: 100%;
+  }
+
+  .bgimg-2 {
+    background-image: url("https://res.cloudinary.com/maxxpremios/image/upload/c_scale,f_auto,q_auto,w_1280/v1520499572/v/cancun-mergulho.png");
+    min-height: 400px;
+  }
+
+  .bgimg-letras {
+    background-image: url("https://res.cloudinary.com/maxxpremios/image/upload/f_auto,q_auto/v1520499573/v/cancun-letras.png");
+    min-height: 101%;
+  }
+
+  .bgimg-3 {
+    background-image: url("https://res.cloudinary.com/maxxpremios/image/upload/f_auto,q_auto/v1520499572/v/cancun-piramide.png");
+    min-height: 400px;
+  }
+
+  .bgimg-4 {
+    background-image: url("https://res.cloudinary.com/maxxpremios/image/upload/f_auto,q_auto/v1520499572/v/cancun-panorama.png");
+    min-height: 400px;
+  }
+
+  .bgimg-5 {
+    background-image: url("https://res.cloudinary.com/maxxpremios/image/upload/f_auto,q_auto/v1520499572/v/cancun-vista.png");
+    min-height: 400px;
+  }
+
+  .bgimg-tripa {
+    background-image: url("https://res.cloudinary.com/maxxpremios/image/upload/f_auto,q_auto/v1520499572/v/cancun-tripa1.png");
+    padding-bottom 17%
+  }
+
+  .text-block
+    color: $primary;
+    background-color: $secondary;
+    padding: 30px;
+    text-align center
+    font-size 16px
+    &.revense
+      color: #fff;
+      background-color: $primary;
+    &.pale
+      color: $primary;
+      background-color: #fff;
+
+  .caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: $primary;
+
+    span {
+      color #fff
+      background #000
+      background rgba(0, 0, 0, 0.3)
+      opacity 0.95
+      padding 10px
+      font-size 20px
+    }
+  }
+
+  .caption span.border {
+    background-color: $primary;
+    color: $secondary;
+    padding: 18px;
+    font-size: 25px;
+  }
+
+  h3 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: $primary;
+  }
+
+  /* Turn off parallax scrolling for tablets and phones */
+  @media only screen and (max-width: 1024px) {
+      .bgimg-1,
+      .bgimg-2,
+      .bgimg-3,
+      .bgimg-4,
+      .bgimg-5,
+      .bgimg-tripa,
+      .bgimg-letras{
+          background-attachment: scroll;
+      }
+  }

@@ -1,0 +1,222 @@
+.logos
+  display flex
+  justify-content: space-around;
+  align-items: center;
+  top 10px
+  left 12px
+  z-index 3
+  position absolute
+  .logo-internal
+    width 140px
+    display inline-block
+    img
+      width 100%
+  .logo-campanha-vb
+    display inline-block
+    width 160px
+    img
+      width 100%
+
+// .header-internal
+
+// .logo-vb
+//   padding 10px 20px
+//   background-color #fff
+//   display inline-block
+//   border-radius 7px
+//   margin-left 20px
+
+.logo-campanha-vb
+  display inline-block
+  margin-left 20px
+
+@media (max-width 500px)
+  .logo img
+    width 35%
+
+.header-home
+  background-color $secondary
+  background-image url("https://res.cloudinary.com/maxxpremios/image/upload/f_auto,q_auto,c_scale,w_200/v1518002700/i/bk-products.gif")
+  text-align center
+  padding 20px 0
+  box-shadow 0 1px 2px 0 rgba(0, 0, 0, 0.25)
+  margin-bottom 40px
+
+.header-internal
+  background-color $secondary
+  background-image url("https://res.cloudinary.com/maxxpremios/image/upload/c_scale,f_auto,q_auto,w_200/v1518002700/i/bk-products.gif")
+  box-shadow 0 1px 2px 0 rgba(0, 0, 0, 0.25)
+  min-height 110px
+  margin-bottom 20px
+
+.header-line
+  padding 5px 10px
+  padding-left 350px
+
+  &.welcome
+    background-color #fff
+    font-size 15px
+  &.navigation
+    background-color $primary
+    margin-left -5px
+  &.points
+    background-color $secondary
+  p
+    margin 0
+
+.point
+  padding: 5px;
+  display: inline-block;
+  font-size 15px
+  font-weight 600
+  strong
+    color $primary
+  &-trocados
+    background-color $secondary + 30%
+    padding 10px
+    margin -5px 5px
+
+
+@media (max-width 800px)
+  .header-internal
+    min-height auto
+    margin-bottom 10px
+
+  .header-line
+    padding 0
+    &.welcome
+    &.points
+      display none
+    &.navigation
+      padding 5px
+      text-align center
+
+  .logos
+    position relative
+    top initial
+    left initial
+    padding 15px
+
+    .logo-internal
+      width 115px
+    .logo-campanha-vb
+      width 130px
+
+  //   margin 5px auto 15px
+  //   text-align center
+  //   position relative
+
+  // .header-internal
+  //   .logo-campanha-vb
+  //     position relative
+
+.nav-link
+  color #fff
+  padding 10px
+  display inline-block
+  margin -5px 0
+  &:hover
+    // color $secondary
+    color $primary
+    background $secondary
+    text-decoration none
+
+.pace
+  position fixed
+  top 0
+  bottom 0
+  left 0
+  right 0
+  background-color rgba(255, 255, 255, 0.3)
+  display flex
+
+  align-items center
+  justify-content center
+
+
+  .pace-loading
+    margin-right 30px
+    li
+      float left
+      width 16px
+      height 64px
+      background #aeb5da
+      border 1px solid #8490c6
+      box-sizing border-box
+      margin-right:8px;
+      opacity 0.2
+      list-style none
+
+      &:nth-child(1)
+        animation-name anim
+        animation-duration .9s
+        animation-timing-function linear
+        animation-iteration-count infinite
+
+      &:nth-child(2)
+        animation-name anim
+        animation-duration .9s
+        animation-delay .3s
+        animation-timing-function linear
+        animation-iteration-count infinite
+
+      &:nth-child(3)
+        animation-name anim
+        animation-duration .9s
+        animation-delay .6s
+        animation-timing-function linear
+        animation-iteration-count infinite
+
+
+@keyframes anim {
+  from {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+}
+
+.forehead
+  height 0
+  padding-bottom 29%
+  margin 0 -5px
+  position relative
+  h2
+    background-color rgba($primary, 0.8)
+    color #ffffff
+    font-size 18px
+    padding 10px 20% 10px 10px
+    display inline-block
+    float right
+    margin-top 40px
+
+  &.forehead-profile
+    background url('https://res.cloudinary.com/maxxpremios/image/upload/c_crop,f_auto,h_400,q_auto:good,w_1386/v1520847078/i/data.jpg') no-repeat
+    background-size 100%
+  &.forehead-rules
+    background url('https://res.cloudinary.com/maxxpremios/image/upload/c_crop,f_auto,g_center,h_400,q_auto:good,w_1386,y_150/v1520847075/i/rules.jpg') no-repeat
+    background-size 100%
+  &.forehead-performance
+    background url('https://res.cloudinary.com/maxxpremios/image/upload/c_crop,f_auto,g_south,h_400,q_auto:good,w_1381,y_300/v1520847077/i/performance.jpg') no-repeat
+    background-size 100%
+  &.forehead-ranking
+    background url('https://res.cloudinary.com/maxxpremios/image/upload/c_crop,f_auto,h_400,q_auto:good,w_1386/v1520847080/i/ranking.jpg') no-repeat
+    background-size 100%
+  &.forehead-catalog
+    background url('https://res.cloudinary.com/maxxpremios/image/upload/c_crop,f_auto,h_400,q_auto:good,w_1386/v1520847080/i/catalog2.jpg') no-repeat
+    background-size 100%
+  &.forehead-training
+    background url('https://res.cloudinary.com/maxxpremios/image/upload/c_scale,w_1380/c_crop,h_400,w_1380,y_100/v1523582770/i/treinamento.jpg') no-repeat
+    background-size 100%
+  &.forehead-training
+    background url('https://res.cloudinary.com/maxxpremios/image/upload/c_scale,w_1380/c_crop,h_400,w_1380,y_100/v1523582770/i/treinamento.jpg') no-repeat
+    background-size 100%
+  &.forehead-goals
+    background url('https://res.cloudinary.com/maxxpremios/image/upload/c_scale,w_1380/c_crop,h_400,w_1380/v1523582747/i/metas.jpg') no-repeat
+    background-size 100%
+  &.forehead-points
+    background url('https://res.cloudinary.com/maxxpremios/image/upload/c_scale,w_1380/c_crop,h_400,w_1380/v1523582747/i/points.jpg') no-repeat
+    background-size 100%

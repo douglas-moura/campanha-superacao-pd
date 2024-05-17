@@ -1,0 +1,49 @@
+
+body
+  background-color #f3f3f3
+
+a
+  color $primary
+
+.wrapper
+  margin 0 5px
+
+.box
+  box-shadow 0 1px 2px 0 rgba(0, 0, 0, 0.25)
+  background-color #fff
+  border-radius 3px
+  padding 10px
+  margin-bottom 20px
+
+.site-wrapper
+  margin: 20px;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  border-radius: 4px;
+
+.page-title
+  color $primary
+
+.open > .dropdown-toggle.btn-primary
+  &:focus
+  &:hover
+    background-color $primary - 20%
+
+.btn-primary
+  color: #fff;
+  background-color: $primary
+  border-color: $primary
+  .nav>li>&:hover
+  &:hover
+  &:focus
+    background-color: $primary - 20%
+
+@media (max-width: 600px)
+  .site-wrapper
+    margin: 10px;
+    padding: 10px;
+
+@media (min-width: 800px)
+  .hide-desk
+    display none !important

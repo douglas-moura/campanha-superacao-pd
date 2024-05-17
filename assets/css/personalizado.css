@@ -1,0 +1,9 @@
+.coluna-mes {
+    width: 10% !important;
+}
+
+.coluna-dinheiro,
+.coluna-percent,
+.coluna-pontos {
+    width: calc(90% / 5) !important;
+}

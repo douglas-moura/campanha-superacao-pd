@@ -1,0 +1,36 @@
+.order-product
+  display block
+
+.order-info
+.order-info-text
+  display inline-block
+
+.order-thumbnail
+  width 110px
+
+.order-info-text
+  width calc(99% - 110px)
+
+.order-price
+  text-align right
+  width 15%
+
+.order-name
+  width 84%
+
+.order-product
+  padding 5px
+  border-top 1px solid #efefef
+  &:first-child
+    border-top none
+
+@media print
+  .wrap-ranking
+    margin 20px
+
+  .header-operacao
+    display none
+
+  .box
+    border-bottom 1px solid #000
+

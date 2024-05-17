@@ -1,0 +1,1436 @@
+.box {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.header-lines {
+    width: 100%;
+    position: relative;
+}
+
+.page-title {
+    color: #6BD2F4;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #6BD2F4;
+    border-color: #6BD2F4;
+}
+
+.header-line div {
+    width: 1080px;
+    margin: 0 auto;
+    padding-left: 30rem !important;
+}
+
+.welcome {
+    background-color: #fff;
+    font-size: 15px;
+}
+
+.welcome div {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.header-line.navigation {
+    background-color: #009640;
+}
+
+.header-line.points {
+    background-color: #6bd2f4;
+    color: #fff !important;
+}
+
+.header-line p {
+    margin: 0;
+}
+
+.point {
+    padding: 5px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.point strong {
+    color: #000;
+}
+
+.point-trocados {
+    background-color: #a0e3f7;
+    padding: 10px;
+    margin: 5px;
+}
+
+.pace {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pace .pace-loading {
+    margin-right: 30px;
+}
+
+.pace .pace-loading li {
+    float: left;
+    width: 16px;
+    height: 64px;
+    background: #aeb5da;
+    border: 1px solid #8490c6;
+    box-sizing: border-box;
+    margin-right: 8px;
+    opacity: 0.2;
+    list-style: none;
+}
+
+.pace .pace-loading li:nth-child(1) {
+    animation-name: anim;
+    animation-duration: 0.9s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.pace .pace-loading li:nth-child(2) {
+    animation-name: anim;
+    animation-duration: 0.9s;
+    animation-delay: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.pace .pace-loading li:nth-child(3) {
+    animation-name: anim;
+    animation-duration: 0.9s;
+    animation-delay: 0.6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@-moz-keyframes anim {
+    from {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes anim {
+    from {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+}
+
+@-o-keyframes anim {
+    from {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+}
+
+@keyframes anim {
+    from {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+}
+
+.form-signin {
+    max-width: 380px;
+    min-width: 300px;
+    padding: 10px 35px 20px;
+    margin: 0 auto;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-signin2 {
+    max-width: 480px;
+    min-width: 400px;
+    padding: 10px 35px 20px;
+    margin: 50px auto;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.postal-link {
+    padding-top: 30px;
+}
+
+.form-register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box fieldset {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.box fieldset legend {
+    font-size: 16px;
+    margin: 0 -5px;
+    border: none;
+    width: auto;
+    padding: 0 4px;
+}
+
+.box fieldset legend span {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.form-col {
+    width: 99%;
+    max-width: 520px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+.form-label {
+    font-weight: normal;
+}
+
+.form-label span {
+    color: #ccc;
+    font-size: 12px;
+}
+
+.form-signin-heading {
+    font-size: 20px;
+    color: #39305f;
+    margin: 10px -15px;
+}
+
+.form-heading {
+    font-size: 20px;
+    color: #6857b1;
+    margin: 5px 0;
+}
+
+.form-disclaimer {
+    font-size: 14px;
+    color: #999;
+    margin: 5px 0;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+    outline: none;
+    box-shadow: #4b3766 0px 0px 4px 0px;
+    border-color: #6857b1;
+}
+
+
+.form-group-2 {
+    width: 48.5%;
+    display: inline-block
+}
+
+.form-group-3 {
+    margin-right: 2%;
+}
+
+.form-group .form-control.error {
+    border-color: #c00;
+}
+
+.form-group .form-control.error:focus {
+    box-shadow: none;
+    border-color: #f30;
+}
+
+.form-group .error {
+    color: #c00;
+    font-weight: 500;
+}
+
+.btn-login {
+    border-radius: 4px;
+    border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+    background-color: #009640;
+}
+
+.btn-login:hover {
+    background-color: #005624;
+    border-bottom: 4px solid rgba(0, 0, 0, 0);
+}
+
+.btn-action {
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+    background-color: #e80;
+}
+
+.btn-action:hover {
+    color: #fff;
+    background-color: #a75f00;
+    border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-buy em {
+    font-style: normal;
+    display: none;
+}
+
+.btn-buy .ico-check {
+    font-size: 16px;
+    font-style: normal;
+    margin: 0 5px 0 0;
+    line-height: 10px;
+}
+
+.btn-buy.is-used em {
+    display: inline-block;
+}
+
+.btn-buy.is-used span {
+    display: none;
+}
+
+.btn-action-go {
+    display: none;
+}
+
+.btn-order {
+    margin: 10px 0;
+    float: right;
+}
+
+.catalog-heading {
+    font-size: 20px;
+    color: #6857b1;
+    margin: 15px;
+    text-align: center;
+}
+
+.table-points td,
+.table-points th {
+    padding: 5px;
+}
+
+.viagem .bgimg-tripa {
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.viagem .bgimg-2 {
+    background-image: url("https://www.gtx100.com.br/maxx/carrera/img/buenos-aires-1_2.jpg");
+    min-height: 600px;
+}
+
+.viagem .bgimg-2-n {
+    background-image: url("https://www.gtx100.com.br/maxx/carrera/img/Jericoacoara-Brazil.jpg");
+    min-height: 600px;
+}
+
+.viagem .bgimg-letras {
+    background-image: url("https://www.gtx100.com.br/maxx/carrera/img/buenos-aires-1_6.jpg");
+    min-height: 101%;
+}
+
+.viagem .bgimg-3-n {
+    background-image: url("https://www.gtx100.com.br/maxx/carrera/img/brasileiro-e3f91d8d.webp");
+    min-height: 600px;
+}
+
+.viagem .bgimg-3-a {
+    background-image: url("https://www.gtx100.com.br/maxx/carrera/img/buenos-aires-1_1.jpg");
+    min-height: 600px;
+}
+
+.viagem .bgimg-4 {
+    background-image: url("https://www.gtx100.com.br/maxx/carrera/img/buenos-aires-1_4.jpg");
+    min-height: 600px;
+}
+
+.viagem .bgimg-4-n {
+    background-image: url("https://www.gtx100.com.br/maxx/carrera/img/iStock-678735644-min.jpg");
+    min-height: 600px;
+}
+
+.viagem .bgimg-5 {
+    background-image: url("https://www.gtx100.com.br/maxx/carrera/img/buenos-aires-1_3.jpg");
+    min-height: 600px;
+}
+
+.viagem .bgimg-5-n {
+    background-image: url("https://www.gtx100.com.br/maxx/carrera/img/pedra-furada-jericoacoara.jpg");
+    min-height: 600px;
+}
+
+.viagem .bgimg-tripa {
+    background-image: url("https://res.cloudinary.com/maxxpremios/image/upload/f_auto,q_auto/v1520499572/v/cancun-tripa1.png");
+    padding-bottom: 17%;
+}
+
+.viagem .text-block {
+    color: #6857b1;
+    background-color: #6BD2F4;
+    padding: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.viagem .text-block.revense {
+    color: #fff;
+    background-color: #6857b1;
+}
+
+.viagem .text-block.pale {
+    color: #6857b1;
+    background-color: #fff;
+}
+
+.viagem .caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #6857b1;
+}
+
+.viagem .caption span {
+    color: #fff;
+    background: #000;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0.95;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.viagem .caption span.border {
+    background-color: #6857b1;
+    color: #6BD2F4;
+    padding: 18px;
+    font-size: 25px;
+}
+
+.viagem h3 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #6857b1;
+}
+
+.order-resume ul {
+    padding: 15px;
+}
+
+.orders-resume-item {
+    width: calc(32% - 5px);
+    min-height: 90px;
+    padding-left: 10px;
+    border-left: 1px solid #efefef;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.orders-resume-item:first-child {
+    padding-left: 0;
+    border-left: none;
+}
+
+.order-resume-title {
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+
+.table-desempenho {
+    border: 1px solid #efefef;
+}
+
+.table-desempenho thead {
+    background-color: #6BD2F4;
+    color: #6857b1;
+}
+
+.table-desempenho tfoot {
+    font-weight: bold;
+    background-color: #efefef;
+}
+
+.table-desempenho tfoot .col-total,
+.table-desempenho tfoot .col-saldo,
+.table-desempenho tfoot .col-trocados {
+    background-color: #d7d7d7;
+    border-left: #fff 1px solid;
+    border-collapse: collapse;
+}
+
+.col-points,
+.col-quarter,
+.col-bonnus,
+.col-metlife,
+.col-total,
+.col-saldo,
+.col-trocados,
+.col-metlife-sales {
+    width: 20%;
+    text-align: right;
+}
+
+.col-obs {
+    text-align: center;
+}
+
+.col-goal,
+.col-reached {
+    width: 15%;
+}
+
+.col-time {
+    width: 10%;
+}
+
+.col-time2 {
+    width: 10%;
+}
+
+.col-total-label {
+    width: 20%;
+    color: #999;
+    text-align: right;
+}
+
+.order-product {
+    display: block;
+}
+
+.order-info,
+.order-info-text {
+    display: inline-block;
+}
+
+.order-thumbnail {
+    width: 110px;
+}
+
+.order-info-text {
+    width: calc(99% - 110px);
+}
+
+.order-price {
+    text-align: right;
+    width: 15%;
+}
+
+.order-name {
+    width: 84%;
+}
+
+.order-product {
+    padding: 5px;
+    border-top: 1px solid #efefef;
+}
+
+.order-product:first-child {
+    border-top: none;
+}
+
+.harlem-shake {
+    animation: harlemshake 1s;
+}
+
+
+.col-pts {
+    width: 15%;
+}
+
+.col-periodo {
+    width: 10%;
+}
+
+
+@-moz-keyframes harlemshake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@-webkit-keyframes harlemshake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@-o-keyframes harlemshake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@keyframes harlemshake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+
+
+@media print {
+    .wrap-ranking {
+        margin: 20px;
+    }
+
+    .header-operacao {
+        display: none;
+    }
+
+    .box {
+        border-bottom: 1px solid #000;
+    }
+}
+
+/*
+
+@media only screen and (max-width: 380px) {
+    .site-wrapper {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .home-box {
+        height: 120px;
+        margin-bottom: 20px;
+    }
+
+    .home-box p {
+        left: 8px;
+        top: 8px;
+    }
+
+    .home-box-title {
+        font-size: 10px;
+    }
+
+    .logos {
+        padding: 10px;
+        left: 0;
+        top: 0;
+    }
+
+    .header-line.points,
+    .header-line.point-total,
+    .header-line.point-trocados,
+    .header-line.point-saldo {
+        padding: 0px;
+    }
+
+    .logos,
+    .header-lines,
+    .point,
+    .header-line.point-total,
+    .header-line.point-trocados,
+    .header-line.point-saldo {
+        width: 100%;
+        position: relative;
+    }
+
+    .point-trocados {
+        background-color: #6BD2F4;
+        padding: 5px;
+        margin: 0px;
+    }
+
+    .forehead {
+        margin: 0px;
+    }
+
+    .header-line.welcome {
+        display: none;
+    }
+
+    .header-line.welcome,
+    .header-line.navigation {
+        padding: 10px;
+        position: relative;
+    }
+
+    .logos .logo-internal img {
+        width: 80%;
+    }
+
+    /* Home 
+
+    .col-xs-6 {
+        width: 50%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    /* Prêmios 
+
+    .product {
+        width: calc(50% - 10px);
+    }
+
+    .product h4 {
+        font-size: 14px;
+        min-height: 30px;
+    }
+
+    .nav-pills {
+        margin: 0px 5px 15px 5px;
+    }
+
+    .nav-pills li {
+        width: 49%;
+    }
+
+    .drop-2 .dropdown-menu {
+        right: 0;
+        left: auto;
+    }
+
+    .product-detail {
+        display: flex;
+    }
+
+    .product-detail .product-detail-description {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .product p {
+        margin: 15px 0;
+    }
+
+    .product .btn-action {
+        width: 100%;
+    }
+
+    .modal-footer button,
+    .modal-footer a {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .product-cart-description {
+        width: 100%;
+        position: relative;
+        margin: 5px 0;
+    }
+
+    .product-cart-points {
+        margin-left: 0px;
+    }
+
+    .product-cart-img {
+        border: 0px;
+    }
+
+    #buy-220V-10289,
+    #buy-110V-10289 {
+        margin: 5px 0;
+    }
+
+    #pedido_status,
+    #pedido_qtd {
+        display: none;
+    }
+
+    #pedido_vazio .btn-primary {
+        padding: 5px;
+    }
+
+    .orders-body {
+        font-size: 12px;
+    }
+
+    .orders-resume-item-number {
+        width: 50%;
+    }
+
+    .orders-resume-item-address {
+        width: 100%;
+        border-left: 0px;
+        padding-left: 0px;
+        margin-top: 15px;
+    }
+
+    /* Regulamento 
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .wrap-rules h3 {
+        font-size: 14px;
+    }
+
+    .wrap-rules {
+        font-size: 12px;
+    }
+
+    /* Dados 
+
+    .form-col {
+        min-width: auto;
+    }
+
+    .linha-3 label {
+        width: 30%;
+    }
+
+    .linha-3 div {
+        width: 70%;
+    }
+
+    .viagem .bgimg-1-a,
+    .viagem .bgimg-2-a,
+    .viagem .bgimg-4-a,
+    .viagem .bgimg-1-n,
+    .viagem .bgimg-2-n,
+    .viagem .bgimg-4-n {
+        background-position-y: 2px;
+        background-position-x: -350px;
+        min-height: 450px;
+    }
+
+    .viagem .bgimg-1-a,
+    .viagem .bgimg-2-a,
+    .viagem .bgimg-3-a,
+    .viagem .bgimg-4-a,
+    .viagem .bgimg-5-a,
+    .viagem .bgimg-6-a,
+    .viagem .bgimg-1-n,
+    .viagem .bgimg-2-n,
+    .viagem .bgimg-3-n,
+    .viagem .bgimg-4-n,
+    .viagem .bgimg-5-n,
+    .viagem .bgimg-6-n {
+        min-height: 450px;
+    }
+
+    .form-group .col-xs-6 {
+        float: right;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .col-desktop {
+        display: none !important;
+    }
+
+    .table-desempenho {
+        font-size: 10px;
+    }
+}
+
+
+
+@media only screen and (min-width: 390px) and (max-width: 430px) {
+    .site-wrapper {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .home-box {
+        height: 180px;
+        margin-bottom: 20px;
+    }
+
+    .home-box p {
+        left: 10px;
+        top: 10px;
+    }
+
+    .home-box-title {
+        font-size: 15px;
+    }
+
+    .logos {
+        padding: 10px;
+        left: 0;
+        top: 0;
+    }
+
+    .header-line.points,
+    .header-line.point-total,
+    .header-line.point-trocados,
+    .header-line.point-saldo {
+        padding: 0px;
+    }
+
+    .logos,
+    .header-lines,
+    .point,
+    .header-line.point-total,
+    .header-line.point-trocados,
+    .header-line.point-saldo {
+        width: 100%;
+        position: relative;
+    }
+
+    .point-trocados {
+        background-color: #6BD2F4;
+        padding: 5px;
+        margin: 0px;
+    }
+
+    .forehead {
+        margin: 0px;
+    }
+
+    .header-line.welcome {
+        display: none;
+    }
+
+    .header-line.welcome,
+    .header-line.navigation {
+        padding: 10px;
+        position: relative;
+    }
+
+    .logos .logo-internal img {
+        width: 80%;
+    }
+
+    .logos .logo-internal,
+    .logos .logo-campanha {
+        width: calc(50% - 10px);
+        margin: 0px 5px;
+        text-align: center;
+    }
+
+    /* Home 
+
+    .col-xs-6 {
+        width: 50%;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    /* Prêmios 
+
+    .product {
+        width: calc(50% - 10px);
+    }
+
+    .product h4 {
+        font-size: 14px;
+        min-height: 30px;
+    }
+
+    .nav-pills {
+        margin: 0px 5px 15px 5px;
+    }
+
+    .nav-pills li {
+        width: 49%;
+    }
+
+    .product-detail {
+        display: flex;
+    }
+
+    .product-detail .product-detail-description {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .product p {
+        margin: 15px 0;
+    }
+
+    .product .btn-action {
+        width: 100%;
+    }
+
+    .modal-footer button,
+    .modal-footer a {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .product-cart-description {
+        width: 100%;
+        position: relative;
+        margin: 5px 0;
+    }
+
+    .product-cart-points {
+        margin-left: 0px;
+    }
+
+    .product-cart-img {
+        border: 0px;
+    }
+
+    #buy-220V-10289,
+    #buy-110V-10289 {
+        margin: 5px 0;
+    }
+
+    #pedido_status,
+    #pedido_qtd {
+        display: none;
+    }
+
+    #pedido_vazio .btn-primary {
+        padding: 5px;
+    }
+
+    .orders-body {
+        font-size: 12px;
+    }
+
+    .orders-resume-item-number {
+        width: 50%;
+    }
+
+    .orders-resume-item-address {
+        width: 100%;
+        border-left: 0px;
+        padding-left: 0px;
+        margin-top: 15px;
+    }
+
+    /* Regulamento 
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .wrap-rules h3 {
+        font-size: 14px;
+    }
+
+    .wrap-rules {
+        font-size: 12px;
+    }
+
+    /* Dados 
+
+    .form-col {
+        min-width: auto;
+    }
+
+    .linha-3 label {
+        width: 30%;
+    }
+
+    .linha-3 div {
+        width: 70%;
+    }
+
+    .viagem .bgimg-1-a,
+    .viagem .bgimg-2-a,
+    .viagem .bgimg-4-a,
+    .viagem .bgimg-1-n,
+    .viagem .bgimg-2-n,
+    .viagem .bgimg-4-n {
+        background-position-y: 2px;
+        background-position-x: -350px;
+        min-height: 450px;
+    }
+
+    .viagem .bgimg-1-a,
+    .viagem .bgimg-2-a,
+    .viagem .bgimg-3-a,
+    .viagem .bgimg-4-a,
+    .viagem .bgimg-5-a,
+    .viagem .bgimg-6-a,
+    .viagem .bgimg-1-n,
+    .viagem .bgimg-2-n,
+    .viagem .bgimg-3-n,
+    .viagem .bgimg-4-n,
+    .viagem .bgimg-5-n,
+    .viagem .bgimg-6-n {
+        min-height: 450px;
+    }
+
+    .form-group .col-xs-6 {
+        float: right;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .col-desktop {
+        display: none !important;
+    }
+
+    .table-desempenho {
+        font-size: 10px;
+    }
+
+}
+
+@media only screen and (min-width: 760px) and (max-width: 800px) {
+    .navigation .nav-link {
+        font-size: 11px;
+        padding: 5px;
+    }
+
+    .points .point {
+        font-size: 11px;
+    }
+
+    .product {
+        width: calc(20% - 10px);
+    }
+
+    .home-box {
+        height: 175px;
+        margin-bottom: 30px;
+    }
+
+    .home-box p {
+        left: 10px;
+        top: 10px;
+    }
+
+    .header-line {
+        padding-left: 300px;
+    }
+
+    .home-box-title {
+        font-size: 15px;
+    }
+
+    .logos .logo-internal {
+        width: 115px;
+    }
+
+    .logos .logo-campanha {
+        width: 150px;
+    }
+
+    .wrap-rules h2 {
+        font-size: 20px;
+    }
+
+    .viagem .bgimg-2-n,
+    .viagem .bgimg-4-n,
+    .viagem .bgimg-1-n,
+    .viagem .bgimg-2-a,
+    .viagem .bgimg-4-a,
+    .viagem .bgimg-1-a {
+        background-position-y: 1px;
+        background-position-x: -500px;
+    }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1024px) {
+    .navigation .nav-link {
+        font-size: 11px;
+        padding: 5px;
+    }
+
+    .points .point {
+        font-size: 11px;
+    }
+
+    .product {
+        width: calc(20% - 10px);
+    }
+
+    .home-box {
+        height: 200px;
+        margin-bottom: 30px;
+    }
+
+    .home-box p {
+        left: 10px;
+        top: 10px;
+    }
+
+    .header-line {
+        padding-left: 300px;
+    }
+
+    .home-box-title {
+        font-size: 15px;
+    }
+
+    .logos .logo-internal {
+        width: 115px;
+    }
+
+    .wrap-rules h2 {
+        font-size: 20px;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 500px) {
+    .logo img {
+        width: 35%;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .wrap-tables {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .wrap-tables2 {
+        width: 80%;
+        overflow-x: auto;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .site-wrapper {
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .product-detail picture {
+        width: 100%;
+    }
+    
+    .product-detail .product-detail-description {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .home-box span.home-box-title {
+        font-size: 14px;
+    }
+    
+    .product {
+        width: calc(50% - 10px);
+    }
+
+    .ranking-table td,
+    .ranking-table th {
+        padding: 10px 2px;
+        font-size: 14px;
+    }
+
+    .product-cart-description {
+        width: calc(100% - 120px);
+    }
+
+    .product-cart-points {
+        width: 100%;
+        display: block;
+        padding: 10px 0 5px 10px;
+        margin: 0;
+        background: #efefef;
+    }
+    
+    .wrap-rules {
+        padding: 0 5px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .product_detail .product-detail-description {
+        width: 100%;
+    }
+    
+    .product_detail picture {
+        width: 100%;
+    }
+    
+    .product_detail picture img {
+        min-height: auto;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .hide-desk {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .home-box span.home-box-text {
+        display: none;
+    }
+    
+    .product {
+        width: calc(33% - 10px);
+    }
+    .header-internal {
+        min-height: auto;
+        margin-bottom: 10px;
+    }
+    
+    .header-line {
+        padding: 0;
+    }
+    
+    .header-line.welcome,
+    .header-line.points {
+        display: none;
+    }
+    
+    .header-line.navigation {
+        padding: 5px;
+        text-align: center;
+    }
+    
+    .logos {
+        position: relative;
+        top: initial;
+        left: initial;
+        padding: 15px;
+    }
+    
+    .logos .logo-internal {
+        width: 115px;
+    }
+    
+    .logo-campanha {
+        width: 130px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .viagem .bgimg-1,
+    .viagem .bgimg-2,
+    .viagem .bgimg-3,
+    .viagem .bgimg-4,
+    .viagem .bgimg-5,
+    .viagem .bgimg-tripa,
+    .viagem .bgimg-letras {
+        background-attachment: scroll;
+    }
+}
+
+@media only screen and (max-width: 1030px) {
+    .product {
+        width: calc(25% - 10px);
+    }
+}
+
+@media only screen and (max-width: 1230px) {
+    .product {
+        width: calc(20% - 10px);
+    }
+}
+
+*/

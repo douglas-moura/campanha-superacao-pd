@@ -14,7 +14,7 @@
     include_once __DIR__ . "/../partials/header-internal-cliente.php";
 
     $db = new Db($config);
-    $participantes = $db->select("SELECT * FROM `users`");
+    $participantes = $db->select("SELECT * FROM `users` WHERE type <> 'Teste'");
     $desempenhos = $db->select("SELECT * FROM `goals`");
     $pedidos = $db->select("SELECT * FROM `order_item` LEFT JOIN `order` ON order_item.order_id = order.id");
 ?>
@@ -62,6 +62,12 @@
     
     .bloco-assunto>div>div {
         font-size: .8rem;
+    }
+
+    .box-vazio {
+        background-color: #f1f1f1;
+        padding: 1rem;
+        margin: 0;
     }
 
     .tabela-cliente {
@@ -379,42 +385,46 @@
             </h4>
             <div>
                 <div>
-                    <table class="tabela-cliente">
-                        <thead>
-                            <tr>
-                                <th>Pedido</th>
-                                <th>Data Pedido</th>
-                                <th>Item</th>
-                                <th>CPF</th>  
-                                <th>Participante</th>                     
-                                <th>Valor</th>
-                                <th>Frete</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                for($p = 0; $p < count($pedidos); $p++) {
-                                    for($i = 0; $i < count($participantes); $i++) {
-                                        if($participantes[$i]['cpf'] == $pedidos[$p]['user_cod']) {
-                                            $pedidos[$p]['usuario'] = $participantes[$i];
+                    <?php if(count($pedidos) > 0) { ?>
+                        <table class="tabela-cliente">
+                            <thead>
+                                <tr>
+                                    <th>Pedido</th>
+                                    <th>Data Pedido</th>
+                                    <th>Item</th>
+                                    <th>CPF</th>
+                                    <th>Participante</th>
+                                    <th>Valor</th>
+                                    <th>Frete</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                        for($p = 0; $p < count($pedidos); $p++) {
+                                            for($i = 0; $i < count($participantes); $i++) {
+                                                if($participantes[$i]['cpf'] == $pedidos[$p]['user_cod']) {
+                                                    $pedidos[$p]['usuario'] = $participantes[$i];
+                                                }
+                                            }
+        
+                                            if(isset($pedidos[$p]['usuario'])) {
+                                                echo '<tr>';
+                                                    echo '<td>#' . $pedidos[$p]['id'] . '</td>';
+                                                    echo '<td>' . date('d.m.Y', strtotime($pedidos[$p]['data'])) . '</td>';
+                                                    echo '<td>' . $pedidos[$p]['title'] . '</td>';
+                                                    echo '<td>' . substr($pedidos[$p]['usuario']['cpf'], 0, 3) . '.' . substr($pedidos[$p]['usuario']['cpf'], 3, 3) . '.' . substr($pedidos[$p]['usuario']['cpf'], 6, 3) . '-' . substr($pedidos[$p]['usuario']['cpf'], 9, 2) . '</td>';
+                                                    echo '<td>' . $pedidos[$p]['usuario']['name'] . ' ' . $pedidos[$p]['usuario']['name_extension'] . '</td>';
+                                                    echo '<td>' . number_format($pedidos[$p]['subtotal'], 0, ",", ".") . '</td>';
+                                                    echo '<td>' . number_format($pedidos[$p]['frete'], 0, ",", ".") . '</td>';
+                                                    echo '<td>' . number_format($pedidos[$p]['subtotal'] + $pedidos[$p]['frete'], 0, ",", ".") . '</td>';
+                                                echo '</tr>';
+                                            }
                                         }
-                                    }
-
-                                    echo '<tr>';
-                                        echo '<td>#' . $pedidos[$p]['id'] . '</td>';
-                                        echo '<td>' . date('d.m.Y', strtotime($pedidos[$p]['data'])) . '</td>';
-                                        echo '<td>' . $pedidos[$p]['title'] . '</td>';
-                                        echo '<td>' . substr($pedidos[$p]['usuario']['cpf'], 0, 3) . '.' . substr($pedidos[$p]['usuario']['cpf'], 3, 3) . '.' . substr($pedidos[$p]['usuario']['cpf'], 6, 3) . '-' . substr($pedidos[$p]['usuario']['cpf'], 9, 2) . '</td>';
-                                        echo '<td>' . $pedidos[$p]['usuario']['name'] . ' ' . $pedidos[$p]['usuario']['name_extension'] . '</td>';
-                                        echo '<td>' . number_format($pedidos[$p]['subtotal'], 0, ",", ".") . '</td>';
-                                        echo '<td>' . number_format($pedidos[$p]['frete'], 0, ",", ".") . '</td>';
-                                        echo '<td>' . number_format($pedidos[$p]['subtotal'] + $pedidos[$p]['frete'], 0, ",", ".") . '</td>';
-                                    echo '</tr>';
-                                }
-                            ?>
-                        </tbody>
-                    </table>
+                                ?>
+                            </tbody>
+                        </table>
+                    <?php } else { echo '<p class="box-vazio">Nenhum pedido encontrado...</p>'; } ?>
                 </div>
             </div>
         </div>
@@ -499,10 +509,10 @@
         </div>
     </div>
     <?php
-    /*
+    
         echo "<pre>";
         echo print_r($pedidos);
         echo "</pre>";
-    */
+    
     ?>
 </section>

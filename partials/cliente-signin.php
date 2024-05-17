@@ -166,7 +166,7 @@
 
     #participantes>div div:first-of-type table .drop-down {
         display: none;
-        height: 30rem;
+        min-height: 35rem;
         vertical-align: top;
     }
 
@@ -342,7 +342,7 @@
                                 <th>Nome</th>
                                 <th>Vendas</th>
                                 <th>Maxx Pontos</th>
-                                <th>Prêmios</th>
+                                <th>Prêmios Solicitados</th>
                                 <th></th>
                             </tr>
                         </thead>

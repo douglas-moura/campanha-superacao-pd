@@ -62,16 +62,14 @@
                     <br>
                     Bem-vindo a <b><?php echo $config['nomeCamp'] ?></b>
                 </li>
-                <li>
-                    Total de pontos distribuidos:
-                    <strong><?php echo isset($_SESSION['user']['total']) ? number_format($_SESSION['user']['total'], 0, ',', '.') : 0 ?></strong>
-                </li>
-                <li>
-                    Pontos trocados pelos participantes:
-                    <strong><?php echo isset($_SESSION['user']['exchanged']) ? number_format($_SESSION['user']['exchanged'], 0, ',', '.') : 0 ?></strong>
-                </li>
             </ul>
-            <div class="menu"></div>
+            <div class="menu">
+                <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/cliente#participantes">Participantes Cadastrados</a>
+                <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/cliente#pedidos">Prêmios Solicitados</a>
+                <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/cliente#grafico-meses">Desempenho TheraSkin</a>
+                <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/cliente#viagem">Viagem dos Campeões</a>
+                <a style="margin-right:0rem;" class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/comunicados">Sair</a>
+            </div>
         </div>
     </div>
 </header>

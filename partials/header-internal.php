@@ -83,9 +83,11 @@
                 <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/regulamento">Regulamento</a>
                 <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/pontos">Pontos e Desempenho</a>
                 <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/comunicados">Comunicados</a>
+                <!--
                 <?php if ($_SESSION['user']['public'] != 'televendas') : ?>
                     <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/ranking">Ranking</a>
                 <?php endif ?>
+                -->
                 <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/cadastro">Seus Dados</a>
                 <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/meuspedidos">Pedidos</a>
                 <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/sair">Sair</a>

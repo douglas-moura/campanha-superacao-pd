@@ -1,4 +1,10 @@
 <?php include_once __DIR__ . "/../partials/order.php"; ?>
+<script>
+    function sairCliente() {
+        sessionStorage.removeItem("sessao_iniciada")
+        window.location.replace("/")
+    }
+</script>
 <header class="header-internal">
     <div class="header-conteudo">
         <div class="logos">
@@ -68,7 +74,7 @@
                 <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/cliente#pedidos">Prêmios Solicitados</a>
                 <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/cliente#grafico-meses">Desempenho TheraSkin</a>
                 <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/cliente#viagem">Viagem dos Campeões</a>
-                <a style="margin-right:0rem;" class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/comunicados">Sair</a>
+                <a style="margin-right:0rem;" class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/comunicados" onclick="sairCliente()">Sair</a>
             </div>
         </div>
     </div>

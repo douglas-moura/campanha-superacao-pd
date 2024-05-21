@@ -13,12 +13,22 @@
     }
 
     function abrirDrop(id) {
-        let linha = document.querySelector("tr.linha-drop-" + id)
-        let seta = document.querySelector("svg.seta-" + id)
+        let linha = document.querySelector("tr#linha-drop-" + id)
+        let seta = document.querySelector("svg#seta-" + id)
+        let linha_geral = document.getElementsByClassName("drop-down")
+        let seta_geral = document.getElementsByClassName("seta")
 
         if(linha.style.display != "table-row") {
             linha.style.display = "table-row"
             seta.style.transform = "rotate(90deg)"
+
+
+            for(let i = 0; i < linha_geral.length; i++) {
+                if(linha_geral[i].getAttribute("id") != linha.id) {
+                    linha_geral[i].style.display = "none"
+                    seta_geral[i].style.transform = "rotate(0)"
+                }
+            }
         } else {
             linha.style.display = "none"
             seta.style.transform = "rotate(0)"
@@ -63,8 +73,90 @@
                                     users_address.reference
                                         FROM `users` LEFT JOIN `users_address` ON users.id = users_address.user_id WHERE users.type <> 'Teste' ORDER BY users.name");
     $theraskin = $db->select("SELECT * FROM `goals` WHERE cod = 11122233344");
-    $desempenhos = $db->select("SELECT * FROM `goals`");
+    $desempenhos = $db->select("SELECT * FROM `goals` WHERE name <> 'Teste'");
     $pedidos = $db->select("SELECT * FROM `order_item` LEFT JOIN `order` ON order_item.order_id = order.id");    
+
+    
+    $desempenhoCamp = [
+        0 => [
+            'mes' => 'Janeiro',
+            'valor' => $theraskin[0]['realizado_1'],
+            'meta' => $theraskin[0]['meta_1'],
+            'venda' => $theraskin[0]['venda_1'],
+        ],
+        1 => [
+            'mes' => 'Fevereiro',
+            'valor' => $theraskin[0]['realizado_2'],
+            'meta' => $theraskin[0]['meta_2'],
+            'venda' => $theraskin[0]['venda_2'],
+        ],
+        2 => [
+            'mes' => 'Março',
+            'valor' => $theraskin[0]['realizado_3'],
+            'meta' => $theraskin[0]['meta_3'],
+            'venda' => $theraskin[0]['venda_3'],
+        ],
+        3 => [
+            'mes' => 'Abril',
+            'valor' => $theraskin[0]['realizado_4'],
+            'meta' => $theraskin[0]['meta_4'],
+            'venda' => $theraskin[0]['venda_4'],
+        ],
+        4 => [
+            'mes' => 'Maio',
+            'valor' => $theraskin[0]['realizado_5'],
+            'meta' => $theraskin[0]['meta_5'],
+            'venda' => $theraskin[0]['venda_5'],
+        ],
+        5 => [
+            'mes' => 'Junho',
+            'valor' => $theraskin[0]['realizado_6'],
+            'meta' => $theraskin[0]['meta_6'],
+            'venda' => $theraskin[0]['venda_6'],
+        ],
+        6 => [
+            'mes' => 'Julho',
+            'valor' => $theraskin[0]['realizado_7'],
+            'meta' => $theraskin[0]['meta_7'],
+            'venda' => $theraskin[0]['venda_7'],
+        ],
+        7 => [
+            'mes' => 'Agosto',
+            'valor' => $theraskin[0]['realizado_8'],
+            'meta' => $theraskin[0]['meta_8'],
+            'venda' => $theraskin[0]['venda_8'],
+        ],
+        8 => [
+            'mes' => 'Setembro',
+            'valor' => $theraskin[0]['realizado_9'],
+            'meta' => $theraskin[0]['meta_9'],
+            'venda' => $theraskin[0]['venda_9'],
+        ],
+        9 => [
+            'mes' => 'Outubro',
+            'valor' => $theraskin[0]['realizado_10'],
+            'meta' => $theraskin[0]['meta_10'],
+            'venda' => $theraskin[0]['venda_10'],
+        ],
+        10 => [
+            'mes' => 'Novembro',
+            'valor' => $theraskin[0]['realizado_11'],
+            'meta' => $theraskin[0]['meta_11'],
+            'venda' => $theraskin[0]['venda_11'],
+        ],
+        11 => [
+            'mes' => 'Dezembro',
+            'valor' => $theraskin[0]['realizado_12'],
+            'meta' => $theraskin[0]['meta_12'],
+            'venda' => $theraskin[0]['venda_12'],
+        ],
+        12 => [
+            'mes' => 'Meta Anual',
+            'valor' => $theraskin[0]['realizado_13'],
+            'meta' => $theraskin[0]['meta_13'],
+            'venda' => $theraskin[0]['venda_13'],
+        ]
+    ];
 
     function compare_by_percent($a, $b) {
         if(isset($a['percent']) && isset($b['percent'])) {
@@ -552,9 +644,9 @@
                                             echo '<td>' . 'R$ ' . number_format($participantes[$i]['venda_total'], 2, ",", ".") . '</td>';
                                             echo '<td>' . number_format($participantes[$i]['pontos_total'], 0, ",", ".") . '</td>';
                                             echo '<td>' . $participantes[$i]['qtd_pedidos'] . '</td>';
-                                            echo '<td><svg class="seta-' . $i . ' xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></td>';
+                                            echo '<td><svg class="seta" id="seta-' . $i . '" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></td>';
                                         echo '</tr>';
-                                        echo '<tr class="drop-down linha-drop-' . $i . '">';
+                                        echo '<tr class="drop-down" id="linha-drop-' . $i . '">';
                                             echo '<td   >
                                                 <h5>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
@@ -583,9 +675,9 @@
                                                     </h5><br>';
                                                 for($v = 1; $v <= 12; $v++) {
                                                     if(isset($participantes[$i]['vendas'])) {
-                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhos[1]['label_' . $v] . "</strong><br>" . 'R$ ' . number_format($participantes[$i]['vendas'][$v], 2, ",", ".") . '</li>';
+                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhoCamp[$v - 1]['mes'] . "</strong><br>" . 'R$ ' . number_format($participantes[$i]['vendas'][$v], 2, ",", ".") . '</li>';
                                                     } else {
-                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhos[1]['label_' . $v] . "</strong><br>" . 'R$ ' . number_format(0, 2, ",", ".") . '</li>';
+                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhoCamp[$v - 1]['mes'] . "</strong><br>" . 'R$ ' . number_format(0, 2, ",", ".") . '</li>';
                                                     }
                                                 }
                                             echo '</td>';
@@ -596,9 +688,9 @@
                                                     </h5><br>';
                                                 for($v = 1; $v <= 12; $v++) {
                                                     if(isset($participantes[$i]['vendas'])) {
-                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhos[1]['label_' . $v] . "</strong><br>" . number_format($participantes[$i]['realizado'][$v] / 100, 2, ",", ".") . '%</li>';
+                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhoCamp[$v - 1]['mes'] . "</strong><br>" . number_format($participantes[$i]['realizado'][$v] / 100, 2, ",", ".") . '%</li>';
                                                     } else {
-                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhos[1]['label_' . $v] . "</strong><br>" . number_format(0, 2, ",", ".") . '%</li>';
+                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhoCamp[$v - 1]['mes'] . "</strong><br>" . number_format(0, 2, ",", ".") . '%</li>';
                                                     }
                                                 }
                                             echo '</td>';
@@ -609,9 +701,9 @@
                                                     </h5><br>';
                                                 for($v = 1; $v <= 12; $v++) {
                                                     if(isset($participantes[$i]['vendas'])) {
-                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhos[1]['label_' . $v] . "</strong><br>" . number_format($participantes[$i]['pontos'][$v], 0, ",", ".") . '</li>';
+                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhoCamp[$v - 1]['mes'] . "</strong><br>" . number_format($participantes[$i]['pontos'][$v], 0, ",", ".") . '</li>';
                                                     } else {
-                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhos[1]['label_' . $v] . "</strong><br>" . number_format(0, 0, ",", ".") . '</li>';
+                                                        echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhoCamp[$v - 1]['mes'] . "</strong><br>" . number_format(0, 0, ",", ".") . '</li>';
                                                     }
                                                 }
                                             echo '</td>';
@@ -623,7 +715,7 @@
                                             $publico_001[] = $participantes[$i];
                                             break;
 
-                                        case 'Gerente de Produtos':
+                                        case 'Gerente de Produto':
                                             $publico_002[] = $participantes[$i];
                                             break;
 
@@ -632,7 +724,7 @@
                                             break;
 
                                         case 'Coordenador Trade':
-                                        case 'Coordenador Tecnico Digital':
+                                        case 'Coordenador Tecnico Cientifico Digital':
                                         case 'Gerente Distrital':
                                             $publico_004[] = $participantes[$i];
                                             break;
@@ -716,11 +808,11 @@
                             <td><?php echo $publicosQtd['Coordenador Trade']; ?></td>
                         </tr>
                         <tr>
-                            <td>Coordenador Tecnico Digital</td>
+                            <td>Coordenador Técnico Digital</td>
                             <td><?php echo $publicosQtd['Coordenador Tecnico Cientifico Digital']; ?></td>
                         </tr>
                         <tr>
-                            <td>Gerentes Distritais</td>
+                            <td>Gerente Distritais</td>
                             <td><?php echo $publicosQtd['Gerente Distrital']; ?></td>
                         </tr>
                         <tr>
@@ -728,15 +820,15 @@
                             <td><?php echo $publicosQtd['Gerente de Contas']; ?></td>
                         </tr>
                         <tr>
-                            <td>Gerente de Produtos</td>
+                            <td>Gerente de Produto</td>
                             <td><?php echo $publicosQtd['Gerente de Produto']; ?></td>
                         </tr>
                         <tr>
-                            <td>Representantes Propagandistas</td>
+                            <td>Representante Propagandista</td>
                             <td><?php echo $publicosQtd['Representante Propagandista']; ?></td>
                         </tr>
                         <tr>
-                            <td>Representantes Digital</td>
+                            <td>Representante Digital</td>
                             <td><?php echo $publicosQtd['Representante Digital']; ?></td>
                         </tr>
                         <tr>
@@ -841,87 +933,6 @@
                                 </ul>
                             </td>
                             <?php
-                                $desempenhoCamp = [
-                                    0 => [
-                                        'mes' => 'Janeiro',
-                                        'valor' => $theraskin[0]['realizado_1'],
-                                        'meta' => $theraskin[0]['meta_1'],
-                                        'venda' => $theraskin[0]['venda_1'],
-                                    ],
-                                    1 => [
-                                        'mes' => 'Fevereiro',
-                                        'valor' => $theraskin[0]['realizado_2'],
-                                        'meta' => $theraskin[0]['meta_2'],
-                                        'venda' => $theraskin[0]['venda_2'],
-                                    ],
-                                    2 => [
-                                        'mes' => 'Março',
-                                        'valor' => $theraskin[0]['realizado_3'],
-                                        'meta' => $theraskin[0]['meta_3'],
-                                        'venda' => $theraskin[0]['venda_3'],
-                                    ],
-                                    3 => [
-                                        'mes' => 'Abril',
-                                        'valor' => $theraskin[0]['realizado_4'],
-                                        'meta' => $theraskin[0]['meta_4'],
-                                        'venda' => $theraskin[0]['venda_4'],
-                                    ],
-                                    4 => [
-                                        'mes' => 'Maio',
-                                        'valor' => $theraskin[0]['realizado_5'],
-                                        'meta' => $theraskin[0]['meta_5'],
-                                        'venda' => $theraskin[0]['venda_5'],
-                                    ],
-                                    5 => [
-                                        'mes' => 'Junho',
-                                        'valor' => $theraskin[0]['realizado_6'],
-                                        'meta' => $theraskin[0]['meta_6'],
-                                        'venda' => $theraskin[0]['venda_6'],
-                                    ],
-                                    6 => [
-                                        'mes' => 'Julho',
-                                        'valor' => $theraskin[0]['realizado_7'],
-                                        'meta' => $theraskin[0]['meta_7'],
-                                        'venda' => $theraskin[0]['venda_7'],
-                                    ],
-                                    7 => [
-                                        'mes' => 'Agosto',
-                                        'valor' => $theraskin[0]['realizado_8'],
-                                        'meta' => $theraskin[0]['meta_8'],
-                                        'venda' => $theraskin[0]['venda_8'],
-                                    ],
-                                    8 => [
-                                        'mes' => 'Setembro',
-                                        'valor' => $theraskin[0]['realizado_9'],
-                                        'meta' => $theraskin[0]['meta_9'],
-                                        'venda' => $theraskin[0]['venda_9'],
-                                    ],
-                                    9 => [
-                                        'mes' => 'Outubro',
-                                        'valor' => $theraskin[0]['realizado_10'],
-                                        'meta' => $theraskin[0]['meta_10'],
-                                        'venda' => $theraskin[0]['venda_10'],
-                                    ],
-                                    10 => [
-                                        'mes' => 'Novembro',
-                                        'valor' => $theraskin[0]['realizado_11'],
-                                        'meta' => $theraskin[0]['meta_11'],
-                                        'venda' => $theraskin[0]['venda_11'],
-                                    ],
-                                    11 => [
-                                        'mes' => 'Dezembro',
-                                        'valor' => $theraskin[0]['realizado_12'],
-                                        'meta' => $theraskin[0]['meta_12'],
-                                        'venda' => $theraskin[0]['venda_12'],
-                                    ],
-                                    12 => [
-                                        'mes' => 'Meta Anual',
-                                        'valor' => $theraskin[0]['realizado_13'],
-                                        'meta' => $theraskin[0]['meta_13'],
-                                        'venda' => $theraskin[0]['venda_13'],
-                                    ]
-                                ];
-
                                 for($m = 0; $m < count($desempenhoCamp) - 1; $m++) {
                                     $proporcao = $desempenhoCamp[$m]['valor'] / 150;
                                     echo '<td><span>' . $desempenhoCamp[$m]['valor'] . '%</span><div style="height: ' . 40 * $proporcao . 'vh;"></div></td>';
@@ -999,7 +1010,7 @@
                         <tbody>
                             <?php
                                 isset($publico_002) ? usort($publico_002, 'compare_by_percent') : [];
-                                for($i = 0; $i < 3; $i++) {
+                                for($i = 0; $i < 2; $i++) {
                                     echo $i < 1 ? '<tr class="viajante">' : '<tr>';
                                         echo '<td>#' . $i + 1 . '</td>';
                                         echo isset($publico_002[$i]['name']) ? '<td>' . $publico_002[$i]['name'] . ' ' . $publico_002[$i]['name_extension'] . '</td>' : '<td></td>';
@@ -1109,11 +1120,11 @@
                     <hr>
                     <h6>Públicos:</h6>
                     <br>
-                    <p><strong>Grupo 001 - 1 vaga</strong><br>Gerente de Produtos</p>
-                    <p><strong>Grupo 002 - 1 vaga</strong><br> Gerente de Contas</p>
-                    <p><strong>Grupo 003 - 1 vaga</strong><br> Consultor de Trade Marketing</p>
-                    <p><strong>Grupo 004 - 2 vagas</strong><br> Coordenador Trade, Coordenador Técnico Digital, ou Gerente Distrital</p>
-                    <p><strong>Grupo 005 - 6 vagas</strong><br> Representante Propagandista ou Representante Digital</p>
+                    <p><strong>Grupo 001 - 1 vaga</strong><br>Gerente de Produto</p>
+                    <p><strong>Grupo 002 - 1 vaga</strong><br>Gerente de Contas</p>
+                    <p><strong>Grupo 003 - 1 vaga</strong><br>Consultor de Trade Marketing</p>
+                    <p><strong>Grupo 004 - 2 vagas</strong><br>Coordenador Trade, Coordenador Técnico Digital, ou Gerente Distrital</p>
+                    <p><strong>Grupo 005 - 6 vagas</strong><br>Representante Propagandista ou Representante Digital</p>
                     <br>
                     <p><strong>Total - 11 vagas</strong></p>
                 </div>
@@ -1124,7 +1135,7 @@
     <?php
     /*
         echo "<pre>";
-        echo print_r($publico_004);
+        echo print_r($desempenhos);
         echo "</pre>";
     */
     ?>

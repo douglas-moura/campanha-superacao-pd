@@ -76,6 +76,7 @@
             <p><span class="home-box-title">Comunicados</span></p>
         </a>
     </div>
+    <!--
     <?php if ($_SESSION['user']['public'] != 'televendas') : ?>
         <div class="quadro-home" id="rank">
             <a class="home-box" href="<?php echo '//' . $config['baseUrl'] ?>/ranking">
@@ -84,6 +85,7 @@
             </a>
         </div>
     <?php endif ?>
+    -->
     <div class="quadro-home" id="pedidos">
         <a class="home-box" href="<?php echo '//' . $config['baseUrl'] ?>/meuspedidos">
             <div class="filtro"></div>

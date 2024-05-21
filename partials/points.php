@@ -32,9 +32,11 @@
                 $totalSaldo = 0;
                 $totalVendas = 0;
 
-                /*echo "<pre>";
-                        print_r($p);
-                        echo "</pre>";*/
+                /*
+                echo "<pre>";
+                echo print_r($p);
+                echo "</pre>";
+                */
 
                 for ($i = 1; $i <= 12; $i++) :
 
@@ -61,7 +63,7 @@
                                 <?php echo $vendas ? 'R$ ' . number_format($vendas, 2, ',', '.') : '-'; ?>
                             </td>
                             <td class="col-pts"">
-                                <?php echo $desempenhos ? ($desempenhos * 100) . '%' : '-'; ?>
+                                <?php echo $desempenhos ? number_format($desempenhos, 2, ',', '.') . '%' : '-'; ?>
                             </td>
                             <td class=" col-pts">
                                 <?php echo $points_bonus2 ? number_format($points_bonus2, 0, ',', '.') : '-'; ?>

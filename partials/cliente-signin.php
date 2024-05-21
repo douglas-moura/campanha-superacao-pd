@@ -169,6 +169,15 @@
 ?>
 
 <style>
+    :root {
+        --cinza-1: #F9F9F9;
+        --cinza-2: #F0F0F0;
+        --cinza-3: #CDCDCD;
+        --cor-1: #5C1BFA;
+        --cor-1-claro: #CBB4FA;
+        --cor-2: #F1B90E;
+    }
+
     html {
         scroll-behavior: smooth;
     }
@@ -185,7 +194,7 @@
 
     #grafico-meses>div table tr #grafico-valores ul::-webkit-scrollbar-thumb,
     div::-webkit-scrollbar-thumb {
-        background-color: black !important;
+        background-color: var(--cor-1) !important;
         border-radius: 2rem !important;
     }
     
@@ -224,7 +233,7 @@
     }
 
     .box-vazio {
-        background-color: #f1f1f1;
+        background-color: var(--cinza-1);
         padding: 1rem;
         margin: 0;
     }
@@ -236,17 +245,18 @@
     }
 
     .tabela-cliente tr:nth-child(odd) {
-        background-color: #f0f0f0;
+        background-color: var(--cinza-2);
     }
     .tabela-cliente tr:nth-child(even) {
-        background-color: #f9f9f9;
+        background-color: var(--cinza-1);
     }
 
     .tabela-cliente thead tr {
-        background-color: #d0d0d0 !important;
+        background-color: var(--cor-1) !important;
     }
 
     .tabela-cliente thead tr th {
+        color: white;
         padding: 1rem;
     }
 
@@ -273,7 +283,7 @@
     }    
 
     #participantes>div div:first-of-type table tbody tr:nth-child(odd) {
-        border-top: .1rem solid #dddddd;
+        border-top: .1rem solid var(--cinza-3);
     }
     
     #participantes>div div:first-of-type table thead tr th:nth-child(1) {
@@ -296,6 +306,8 @@
         min-height: 35rem;
         vertical-align: top;
         transition: .2s;
+        border-bottom: .4rem solid var(--cor-1);
+        border-top: .2rem solid var(--cor-1);
     }
 
     #participantes>div div:first-of-type table .drop-down td {
@@ -305,11 +317,13 @@
     #participantes>div div:first-of-type table .drop-down td h5 {
         align-items: center;
         display: flex;
+        color: var(--cor-1);
     }
 
     #participantes>div div:first-of-type table .drop-down td h5 svg {
         margin-right: .5rem;
         transition: .2s;
+        color: var(--cor-1-claro);
     }
 
     #participantes>div div:first-of-type table tr td {
@@ -330,7 +344,7 @@
     #participantes>div div:last-of-type {
         width: 28% !important;
         height: 65vh;
-        background-color: #f0f0f0;
+        background-color: var(--cinza-2);
         padding: 1.5rem;
     }
 
@@ -342,8 +356,9 @@
         font-size: 1.2rem;
         font-weight: 600;
         padding-bottom: 1rem;
-        border-bottom: .1rem solid #858585;
+        border-bottom: .1rem solid var(--cor-1);
         text-align: center;
+        color: var(--cor-1);
     }
 
     #participantes>div div:last-of-type table tr td {
@@ -403,7 +418,7 @@
         background-color: white;
         display: none;
         border-radius: .5rem;
-        box-shadow: 1px 1px 15px #cdcdcd;
+        box-shadow: 1px 1px 15px var(--cinza-3);
     }
 
     #grafico-meses>div {
@@ -424,7 +439,7 @@
 
     #grafico-meses>div table #barras td {
         font-size: .8rem !important;
-        padding: 1rem 0;
+        padding: 0;
         vertical-align: bottom;
         text-align: center;
         /*border: .2rem solid red;*/
@@ -445,14 +460,20 @@
         list-style-type: none;
     }
 
+    #grafico-meses>div table #barras #eixo-y ul li {
+        z-index: 9999;
+        background-color: var(--cinza-2);
+    }
+
     #grafico-meses>div table #barras #eixo-y .grade-grafico {
-        border-top: .1rem solid #cdcdcd;
+        border-top: .1rem solid var(--cinza-3);
         width: 1300%;
         margin: 0;
+        margin-top: -2.5vh;
     }
 
     #grafico-meses>div table #barras td div {
-        background: linear-gradient(#000000, #858585);
+        background: linear-gradient(var(--cor-1), var(--cor-2));
         width: .5rem;
         margin: auto;
         margin-top: 0;
@@ -461,6 +482,7 @@
     }
 
     #grafico-meses>div table #barras td span {
+        font-weight: 700;
         margin: 1rem 0 !important;
         font-size: .6rem !important;
         z-index: 9999;
@@ -469,6 +491,7 @@
 
     #grafico-meses>div table #eixo-x {
         height: 5vh;
+        background-color: var(--cinza-2) !important;
     }
 
     #grafico-meses>div table #eixo-x td {
@@ -478,12 +501,19 @@
     }
 
     #grafico-meses>div table tr #grafico-valores ul {
-        max-height: 40vh;
+        max-height: 45vh;
         overflow-y: scroll !important;
         list-style-type: none;
         text-align: left;
-        padding: 0rem 4rem 0rem 3rem;
-        margin: 0;
+        padding: 2rem;
+        border-radius: .5rem;
+        margin: 1.5rem;
+        background-color: white;
+    }
+
+    #grafico-meses>div table tr #grafico-valores ul h5 {
+        font-weight: 700;
+        color: var(--cor-1);
     }
 
     #grafico-meses>div table tr #grafico-valores ul li {
@@ -498,10 +528,10 @@
     }
 
     #grafico-meses>div table tr #grafico-valores ul li h6 {
-        font-weight: 800;
+        font-weight: 500;
         width: 100%;
         padding: .5rem 0;
-        border-top: .1rem solid #cdcdcd;
+        border-top: .1rem solid var(--cinza-3);
     }
 
     #viagem>div div:first-of-type {
@@ -509,12 +539,8 @@
     }
 
     #viagem>div .viajante {
-        background-color: #5b5b5b !important;
-        color: white;
-    }
-
-    #viagem>div .viajante td {
-        border-top: .025rem solid #777;
+        background-color: var(--cor-2) !important;
+        font-weight: 700;
     }
 
     #viagem>div div:first-of-type table thead th:nth-child(1) {
@@ -538,11 +564,11 @@
         width: 33%;
         box-sizing: border-box;
         padding: 2rem;
-        background: #f1f1f1;
+        background: var(--cinza-1);
     }
 
     #viagem>div div:last-of-type hr {
-        border-top: .1rem solid #bdbdbd;
+        border-top: .1rem solid var(--cinza-3);
         margin: 2rem 0;
     }
 
@@ -558,7 +584,7 @@
     #viagem>div div:last-of-type #barra-progresso div:first-of-type {
         position: absolute;
         height: .5rem;
-        background: black;
+        background: var(--cor-1);
         z-index: 100;
         border-radius: 0 !important;
     }
@@ -567,7 +593,7 @@
         position: absolute;
         width: 100%;
         height: .5rem;
-        background: #cbcbcb;
+        background: var(--cor-1-claro);
         border-radius: 0 !important;
     }
 </style>
@@ -938,9 +964,9 @@
                                     echo '<td><span>' . $desempenhoCamp[$m]['valor'] . '%</span><div style="height: ' . 40 * $proporcao . 'vh;"></div></td>';
                                 }
                             ?>
-                            <td id="grafico-valores">
+                            <td id="grafico-valores" rowspan="2">
                                 <ul>
-                                    <h4>Resultados Mensais</h4>
+                                    <h5>Resultados Mensais</h5>
                                     <br>
                                     <?php
                                         for($m = 0; $m < count($desempenhoCamp); $m++) {
@@ -961,7 +987,6 @@
                                     echo '<td>' . substr($desempenhoCamp[$m]['mes'], 0, 3) . '<br>2024</td>';
                                 }
                             ?>
-                            <td></td>
                         </tr>
                     </tbody>
                 </table>

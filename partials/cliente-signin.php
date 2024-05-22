@@ -1,51 +1,3 @@
-<script>
-    auth = sessionStorage.getItem("sessao_iniciada")
-    if(auth == 555) {        
-    } else {
-        let cod_acesso = prompt("Código de Acesso:")
-        if(cod_acesso == 1234) {
-            alert("Acesso liberado");
-            sessionStorage.setItem("sessao_iniciada", 555)
-        } else {
-            let cod_acesso = alert("Código Incorreto:")
-            window.location.reload(true);
-        }
-    }
-
-    function abrirDrop(id) {
-        let linha = document.querySelector("tr#linha-drop-" + id)
-        let seta = document.querySelector("svg#seta-" + id)
-        let linha_geral = document.getElementsByClassName("drop-down")
-        let seta_geral = document.getElementsByClassName("seta")
-
-        if(linha.style.display != "table-row") {
-            linha.style.display = "table-row"
-            seta.style.transform = "rotate(90deg)"
-
-
-            for(let i = 0; i < linha_geral.length; i++) {
-                if(linha_geral[i].getAttribute("id") != linha.id) {
-                    linha_geral[i].style.display = "none"
-                    seta_geral[i].style.transform = "rotate(0)"
-                }
-            }
-        } else {
-            linha.style.display = "none"
-            seta.style.transform = "rotate(0)"
-        }
-    }
-
-    function mostrarImgProd(id) {
-        let img_pedido = document.querySelector("img.img-pedido-" + id)
-
-        if(img_pedido.style.display != "block") {
-            img_pedido.style.display = "block"
-        } else {
-            img_pedido.style.display = "none"
-        }
-    }
-</script>
-
 <?php
     include_once __DIR__ . "/../config.php";
     include_once __DIR__ . "/../partials/db.php";
@@ -264,6 +216,19 @@
     .tabela-cliente tr td {
         /*border: .2rem solid red;*/
         padding: .5rem 1rem;
+    }
+
+    #pelicula-cliente {
+        position: fixed;
+        z-index: 99999;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgb(0 0 0 / 75%);
+        /* opacity: .9; */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
     }
 
     #intro ul {
@@ -598,6 +563,8 @@
     }
 </style>
 
+<div id="pelicula-cliente"></div>
+
 <section class="wrapper">
     <div>
         <h2>Painel Cliente</h2>
@@ -664,7 +631,7 @@
                                             }
                                         }
     
-                                        echo '<tr class="linha-' . $i . '" onclick="abrirDrop(' . $i . ')">';
+                                        echo '<tr class="linha-superior linha-' . $i . '" onclick="abrirDrop(' . $i . ')">';
                                             echo '<td>' . $participantes[$i]['name'] . ' ' . $participantes[$i]['name_extension'] . '</td>';
                                             //echo '<td>' . substr($participantes[$i]['cpf'], 0, 3) . '.' . substr($participantes[$i]['cpf'], 3, 3) . '.' . substr($participantes[$i]['cpf'], 6, 3) . '-' . substr($participantes[$i]['cpf'], 9, 2) . '</td>';
                                             echo '<td>' . 'R$ ' . number_format($participantes[$i]['venda_total'], 2, ",", ".") . '</td>';
@@ -1127,7 +1094,7 @@
                             $vendas_thera += ($theraskin[0]['venda_' . $i]);
                         }
                     ?>
-                    <h6>Objetivo TheraSkin</h6>
+                    <h6 style="margin-bottom:.5rem !important;">Objetivo TheraSkin</h6>
                     <h3><strong><?php echo 'R$ ' . number_format($theraskin[0]['meta_13'], 2, ",", "."); ?></strong></h3>
                     <div id="barra-progresso">
                         <div style="width: <?php echo ($vendas_thera / $theraskin[0]['meta_13']) * 100; ?>% !important;"></div>

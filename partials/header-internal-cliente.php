@@ -1,11 +1,6 @@
 <?php include_once __DIR__ . "/../partials/order.php"; ?>
-<script>
-    function sairCliente() {
-        sessionStorage.removeItem("sessao_iniciada")
-        window.location.replace("/")
-    }
-</script>
-<header class="header-internal">
+<script src="../assets/js/cliente.js"></script>
+<header class="header-internal painel-cliente">
     <div class="header-conteudo">
         <div class="logos">
             <a href="<?php echo '//' . $config['baseUrl'] ?>" class="logo-campanha">
@@ -79,7 +74,7 @@
         </div>
     </div>
 </header>
-<main class="site-wrapper clearfix">
+<main class="site-wrapper clearfix painel-cliente">
     <?php
     if (isset($page) && count($page) > 0 && isset($page['name']) && isset($page['title'])) {
     ?>

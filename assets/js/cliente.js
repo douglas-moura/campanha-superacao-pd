@@ -28,32 +28,42 @@ fetch('../api/acesso-cliente/index.json')
     })
 
 function abrirDrop(id) {
-    let linha_sup = document.querySelector("tr.linha-" + id)
-    let linha = document.querySelector("tr#linha-drop-" + id)
-    let seta = document.querySelector("svg#seta-" + id)
+    let linha_sup = document.querySelector("tr#linha-" + id)
     let linha_geral_sup = document.getElementsByClassName("linha-superior")
-    let linha_geral = document.getElementsByClassName("drop-down")
+    let linha_inf = document.querySelector("tr#linha-drop-A-" + id)
+    let linha_inf_B = document.querySelector("tr#linha-drop-B-" + id)
+    let linha_geral_infsA = document.getElementsByClassName("drop-down-dados")
+    let linha_geral_infsB = document.getElementsByClassName("drop-down-infos")
+    let seta = document.querySelector("svg#seta-" + id)
     let seta_geral = document.getElementsByClassName("seta")
 
-    console.log(linha_sup)
-
-    if(linha.style.display != "table-row") {
+    // abre o drop-down
+    if(linha_inf.style.display != "table-row") {
+        linha_sup.style.backgroundColor = "var(--cor-1-filtro) !important"
         linha_sup.style.fontWeight = 800
-        linha.style.display = "table-row"
+        linha_sup.style.borderTop = ".2rem solid var(--cor-1) !important"
+        linha_inf.style.display = "table-row"
+        linha_inf_B.style.display = "table-row"
         seta.style.transform = "rotate(90deg)"
-
-        for(let i = 0; i < linha_geral.length; i++) {
-            if(linha_geral[i].getAttribute("id") != linha.id) {
-                linha_geral_sup[i].style.backgroundColor = "var(--cinza-2)"
+        
+        // fecha o drop-down que ja esta aberto
+        for(let i = 0; i < linha_geral_sup.length; i++) {
+            if(linha_geral_sup[i].getAttribute("id").substr(5) != linha_inf.id.substr(12)) {
+                linha_geral_sup[i].style.backgroundColor = "var(--cinza-2) !important"
                 linha_geral_sup[i].style.fontWeight = "normal"
-                linha_geral[i].style.display = "none"
+                linha_geral_sup[i].style.borderTop = ".1rem  solid var(--cinza-3) !important"
+                linha_geral_infsA[i].style.display = "none"
+                linha_geral_infsB[i].style.display = "none"
                 seta_geral[i].style.transform = "rotate(0)"
             }
         }
+    // fecha o drop-down
     } else {
         linha_sup.style.backgroundColor = "var(--cinza-2)"
         linha_sup.style.fontWeight = "normal"
-        linha.style.display = "none"
+        linha_sup.style.borderTop = ".1rem  solid var(--cinza-3) !important"
+        linha_inf.style.display = "none"
+        linha_inf_B.style.display = "none"
         seta.style.transform = "rotate(0)"
     }
 }

@@ -1,19 +1,16 @@
 <?php
+    include_once __DIR__ . "/../config.php";
+    include_once __DIR__ . "/../partials/check.php";
+    include_once __DIR__ . "/../partials/db.php";
+    $db = new Db($config);
 
-use function PHPSTORM_META\type;
+    include_once __DIR__ . "/../partials/head.php";
+    $page = [
+        'name' => 'ranking',
+        'title' => 'Ranking'
+    ];
 
-include_once __DIR__ . "/../config.php";
-include_once __DIR__ . "/../partials/check.php";
-include_once __DIR__ . "/../partials/db.php";
-$db = new Db($config);
-
-include_once __DIR__ . "/../partials/head.php";
-$page = [
-    'name' => 'ranking',
-    'title' => 'Ranking'
-];
-
-include_once __DIR__ . "/../partials/header-internal.php";
+    include_once __DIR__ . "/../partials/header-internal.php";
 ?>
 
 
@@ -31,61 +28,47 @@ include_once __DIR__ . "/../partials/header-internal.php";
 
     <div class="col-md-9">
         <?php
-        switch ($_SESSION['user']['type']) {
-            case 'Consultor de Trade Marketing':
-                $grupo = "users.type = 'Consultor de Trade Marketing'";
-                $limite = 5;
-                break;
+
+            $grupo = null;
+
+            switch ($_SESSION['user']['type']) {
+                case 'Consultor de Trade Marketing':
+                    $grupo = "users.type = 'Consultor de Trade Marketing'";
+                    $limite = 5;
+                    break;
+
+                case 'Coordenador Tecnico Cientifico Digital':
+                case 'Coordenador Trade':
+                case 'Gerente Distrital':
+                    $grupo = "users.type = 'Coordenador Trade' OR users.type = 'Coordenador Tecnico Cientifico Digital' OR users.type = 'Gerente Distrital'";
+                    $limite = 3;
+                    break;
+
+                case 'Gerente de Contas':
+                    $grupo = "users.type = 'Gerente de Contas'";
+                    $limite = 3;
+                    break;
+
+                case 'Gerente de Produto':
+                    $grupo = "users.type = 'Gerente de Produto'";
+                    $limite = 2;
+                    break;
+
+                case 'Representante Propagandista':
+                case 'Representante Digital':
+                    $grupo = "users.type = 'Representante Digital' OR users.type = 'Representante Propagandista'";
+                    $limite = 10;
+                    break;
+
+                default:
+                    $public['type'] = '';
+                    $public['travel'] = false;
+                    break;
+            }
+
+            $usuarios = $db->select("SELECT * FROM `goals` LEFT JOIN `users` ON users.cpf = goals.cod WHERE $grupo");
             
-            case 'Coordenador Tecnico Cientifico Digital':
-            case 'Coordenador Trade':
-            case 'Gerente Distrital':
-                $grupo = "users.type = 'Coordenador Trade' OR users.type = 'Coordenador Tecnico Cientifico Digital' OR users.type = 'Gerente Distrital'";
-                $limite = 5;
-                break;
-
-            case 'Gerente de Contas':
-                $grupo = "users.type = 'Gerente de Contas'";
-                $limite = 3;
-                break;
-
-            case 'Gerente de Produto':
-                $grupo = "users.type = 'Gerente de Produto'";
-                $limite = 2;
-                break;
-
-            case 'Representante Propagandista':
-            case 'Representante Digital':
-                $grupo = "users.type = 'Representante Propagandista' OR users.type = 'Representante Digital'";
-                $limite = 10;
-                break;
-
-            default:
-                $public['type'] = '';
-                $public['travel'] = false;
-                break;
-        }
-
-            $participante_pts = $db->select(
-                "SELECT
-                    ((g.venda_1 + g.venda_2 + g.venda_3 + g.venda_4 + g.venda_5 + g.venda_6 + g.venda_7 + g.venda_8 + g.venda_9 + g.venda_10 + g.venda_11 + g.venda_12) / g.meta_13) as tot_pts,
-                    g.cod,
-                    users.name,
-                    users.name_extension,
-                    users.type
-                        FROM `goals` as g JOIN `users`
-                        WHERE g.cod = users.cpf
-                        AND ($grupo)
-                        ORDER BY tot_pts DESC"
-            );
-
-            $limite = count($participante_pts) < $limite ? count($participante_pts) : $limite;
-/*
-            echo '<pre>';
-            echo print_r($limite);
-            echo '</pre>';
-*/
-            if (count($participante_pts) > 0) {
+            if (count($usuarios) > 0) {
         ?>
                 <table class="ranking-table">
                     <thead>
@@ -93,21 +76,46 @@ include_once __DIR__ . "/../partials/header-internal.php";
                             <th class="rank">Rank</th>
                             <th class="public">Nome</th>
                             <th class="public">Público</th>
-                            <th class="percent">Desempenho Anual</th>
+                            <!--<th class="percent">Desempenho</th>-->
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+                        
+                            for ($i = 0; $i < count($usuarios); $i++) {
+                                $meta_acumulada = 0;
+                                $venda_acumulada = 0;
+
+                                for($m = 1; $m <= 7; $m++) {
+                                    $meta_acumulada += floatval($usuarios[$i]['meta_' . $m]);
+                                    $venda_acumulada += floatval($usuarios[$i]['venda_' . $m]);
+                                }
+
+                                $usuarios[$i]['venda_acum'] = $venda_acumulada;
+                                $usuarios[$i]['meta_acum'] = $meta_acumulada;
+                                $usuarios[$i]['desempenho_acumulado'] = ($venda_acumulada == 0 && $meta_acumulada == 0) ? 0 : ($venda_acumulada / $meta_acumulada) * 100;
+                            };
+                            
+                            usort($usuarios, function($a, $b) {
+                                if ($a['desempenho_acumulado'] > $b['desempenho_acumulado']) {
+                                    return -1;
+                                } elseif ($a['desempenho_acumulado'] < $b['desempenho_acumulado']) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+                            
+                            
                             for ($i = 0; $i < $limite; $i++) {
                                 echo "
                                     <tr>
-                                        <td class='rank' > " . ($i + 1) . "</td>
-                                        <td class='public'>" . $participante_pts[$i]['name'] . " " . $participante_pts[$i]['name_extension'] . "</td>
-                                        <td class='public'>" . $participante_pts[$i]['type'] .  "</td>
-                                        <td class='percent'>" . number_format($participante_pts[$i]['tot_pts'] * 100, 2) .  "%</td>
+                                        <td class='rank'>" . ($i + 1) . "</td>
+                                        <td class='public'>" . $usuarios[$i]['name'] . " " . $usuarios[$i]['name_extension'] . "</td>
+                                        <td class='public'>" . $usuarios[$i]['type'] . "</td>
+                                        <!--<td class='public'>" . number_format($usuarios[$i]['desempenho_acumulado'], 2, ',', ' ') . "%</td>-->
                                     </tr>
                                 ";
-                            };
+                            }
                         ?>
                     </tbody>
                 </table>

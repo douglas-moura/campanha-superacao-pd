@@ -1,6 +1,7 @@
 <?php
     $db = new Db($config);
     $points = $db->select("SELECT g.* from `goals` as g where g.cod = '" . $_SESSION['user']['cpf'] . "'");
+    $mesesAcumulados = 7;
 ?>
 
 <div class="wrapper wrap-tables">
@@ -47,7 +48,7 @@
                         $desempenhos = $p['realizado_' . $i];
                         $points_base = $p['points_e1_' . $i];       /* pontos base */
                         $points_bonus1 = $p['points_e2_' . $i];     /* desativado */
-                        $points_bonus2 = $p['points_e3_' . $i];     /* renda bruta */
+                        $points_bonus2 = $p['points_e3_' . $i];     /* desativado */
                         $total = ($points_base ? $points_base : 0) + ($points_bonus1 ? $points_bonus1 : 0);
 
                         $totalPoints = $totalPoints + $total;
@@ -78,16 +79,40 @@
                 ?>
             </tbody>
             <tfoot>
+                <?php 
+                    if($p['meta_13'] == "0.00") {
+                        $p['meta_13'] = 0;
+                    }
+                ?>
                 <tr class="rodape_tab">
-                    <td colspan=""> Total Geral</td>
+                    <td colspan=""> Total Acumulado</td>
                     <td>
-                        <p>Meta Anual</p><?php echo $p['meta_13'] ? 'R$ ' . number_format($p['meta_13'], 2, ',', '.') : '-'; ?>
+                        <p>Meta Acumulada</p>
+                        <?php /* echo $p['meta_13'] ? 'R$ ' . number_format($p['meta_13'], 2, ',', '.') : '-'; */ ?>
+                        <?php
+                            $metaAcumulada = 0;
+
+                            for($m = 1; $m <= $mesesAcumulados; $m++) {
+                                $metaAcumulada += $p['meta_' . $m];
+                            }
+
+                            echo 'R$ ' . number_format($metaAcumulada, 2, ',', '.');
+                        ?>
                     </td>
                     <td>
-                        <p>Venda Total</p><?php echo $totalVendas ? 'R$ ' . number_format($totalVendas, 2, ',', '.') : '-'; ?>
+                        <p>Venda Acumulada</p><?php echo $totalVendas ? 'R$ ' . number_format($totalVendas, 2, ',', '.') : '-'; ?>
                     </td>
                     <td>
-                        <p>Desempenho Anual</p><?php echo $totalVendas ? number_format((($totalVendas / $p['meta_13']) * 100), 2, ',', '.') . '%' : '-'; ?>
+                        <p>Desempenho Acumulado</p>
+                        <?php
+                            if($p['meta_13'] != 0) {
+                                echo '-';
+                            } else {
+                                /* echo '<p>Desempenho Anual</p>' . $totalVendas ? number_format((($totalVendas / $p['meta_13']) * 100), 2, ',', '.') . '%' : '-'; */
+                                echo $metaAcumulada > 0 ? number_format((($totalVendas / $metaAcumulada) * 100), 2, ',', '.') . '%' : '-';
+                            }
+
+                        ?>
                     </td>
                     <td></td>
                     <td>

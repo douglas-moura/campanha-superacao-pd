@@ -3,14 +3,33 @@
         <h2>Carrinho</h2>
         <p>Confira os prêmios que você escolheu e fique dentro do seu saldo de pontos.</p>
         <h4>Endereço de Envio:</h4>
-        <ul>
-            <li><?php echo ($address['street']) . ", " . ($address['number']) ?></li>
-            <li><?php echo ($address['complement']) ?></li>
-            <li><?php echo ($address['postal_code']) . " - " . ($address['district']) ?></li>
-            <li><?php echo ($address['city']) . "/" . ($address['region']) ?></li>
-            <li></li>
-            <li><?php echo ($address['reference']) ?></li>
-        </ul>
+        <?php
+            if(count($address) > 0){
+                if(
+                    isset($address['street']) &&
+                    isset($address['postal_code']) &&
+                    isset($address['district']) &&
+                    isset($address['city']) &&
+                    isset($address['region']) &&
+                    $address['city'] != "" &&
+                    $address['region'] != ""
+                ) {
+                    echo '<ul>
+                        <li>' . ($address['street']) . ", " . ($address['number']) . '</li>
+                        <li>' . ($address['complement']) . '</li>
+                        <li>CEP ' . ($address['postal_code']) . '</li>
+                        <li>Bairro ' . ($address['district']) . '</li>
+                        <li>' . ($address['city']) . " - " . ($address['region']) . '</li>
+                        <li></li>
+                        <li>' . ($address['reference']) . '</li>
+                    </ul>';
+                } else {
+                    echo '<p class="alert alert-danger">Endereço incompleto</p>';
+                }
+            } else {
+                echo '<p class="alert alert-danger">Endereço não cadastrado</p>';
+            }
+        ?>
         <a href="<?php echo "//" . $config['baseUrl'] ?>/cadastro/#register_address"> Editar </a>
     </div>
     <div class="produtos_cart">

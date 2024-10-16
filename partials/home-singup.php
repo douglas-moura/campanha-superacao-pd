@@ -107,7 +107,7 @@ function login($post, $db, $errors) {
                                 u.password,
                                 u.cadastro,
                                     (SELECT
-                                        p.points_e1_1 +
+                                        p.points_e1_1 +/*
                                         p.points_e1_2 +
                                         p.points_e1_3 +
                                         p.points_e1_4 +
@@ -118,7 +118,7 @@ function login($post, $db, $errors) {
                                         p.points_e1_9 +
                                         p.points_e1_10 +
                                         p.points_e1_11 +
-                                        p.points_e1_12 +
+                                        p.points_e1_12 +*/
                                         p.points_e2_1 +
                                         p.points_e2_2 +
                                         p.points_e2_3 +
@@ -237,6 +237,7 @@ if (isset($_SESSION['user'])) {
     <form class="form-login" id='signin' name='signin' method="post" novalidate>
         <!--<h3 class=""><strong><?php echo $config['nomeCamp'] ?></strong></h3>-->
         <?php
+
         if (count($errors) > 0) {
             echo '<div class="alert alert-danger">';
             foreach ($errors as $error) {

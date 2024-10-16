@@ -4,9 +4,10 @@
   },
   "devDependencies": {
     "node-sass": "^9.0.0",
-    "sass": "^1.75.0"
+    "sass": "^1.75.0",
+    "tailwindcss": "^3.4.14"
   },
-  "scripts" : {
-     "node-sass": "node-sass -watch -include-path sass -o css"
+  "scripts": {
+    "node-sass": "node-sass -watch -include-path sass -o css"
   }
 }

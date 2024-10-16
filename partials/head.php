@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
         <link rel="stylesheet" href="//<?php echo $config['assets'] ?>css/style.css?version=<?php echo $config['version'] ?>" />
         <link rel="stylesheet" href="//<?php echo $config['assets'] ?>css/personalizado.css" />
+        <link rel="stylesheet" href="//<?php echo $config['assets'] ?>css/output.css" />
     </head>
 
     <body>

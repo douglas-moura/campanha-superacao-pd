@@ -1,6 +1,11 @@
 <?php
     if (!isset($communications[0]['visto'])) {
+        
         if (count($communications) > 0 && isset($communications[0]['model']) && !empty($communications[0]['model']) && !empty($communications[0]['text'])) {
+            echo "<pre>";
+            echo "chegou";
+            echo "</pre>";
+            
             $content = str_replace('[nome]', $communications[0]['nome'], $communications[0]['text']);
             $content = str_replace('[meta]', $communications[0]['meta'], $content);
             $content = str_replace('[pontos]', $communications[0]['points'], $content);
@@ -13,6 +18,30 @@
             $content = str_replace('[valor_produto]', number_format($communications[0]['valor_produto'], 0, ',', '.'), $content);
             $content = str_replace('[codigo_produto]', $communications[0]['codigo_produto'], $content);
             $content = str_replace('[info_01]', $communications[0]['info_01'], $content);
+            $content = str_replace('[info_02]', $communications[0]['info_02'], $content);
+            $content = str_replace('[info_03]', $communications[0]['info_03'], $content);
+            $content = str_replace('[info_04]', $communications[0]['info_04'], $content);
+            $content = str_replace('[info_05]', $communications[0]['info_05'], $content);
+            $content = str_replace('[info_06]', $communications[0]['info_06'], $content);
+            $content = str_replace('[info_07]', $communications[0]['info_07'], $content);
+            $content = str_replace('[info_08]', $communications[0]['info_08'], $content);
+            $content = str_replace('[info_09]', $communications[0]['info_09'], $content);
+            $content = str_replace('[info_10]', $communications[0]['info_10'], $content);
+            $content = str_replace('[info_11]', $communications[0]['info_11'], $content);
+            $content = str_replace('[info_12]', $communications[0]['info_12'], $content);
+            $content = str_replace('[info_13]', $communications[0]['info_13'], $content);
+            $content = str_replace('[info_14]', $communications[0]['info_14'], $content);
+            $content = str_replace('[info_15]', $communications[0]['info_15'], $content);
+            $content = str_replace('[info_16]', $communications[0]['info_16'], $content);
+            $content = str_replace('[info_17]', $communications[0]['info_17'], $content);
+            $content = str_replace('[info_18]', $communications[0]['info_18'], $content);
+            $content = str_replace('[info_19]', $communications[0]['info_19'], $content);
+            $content = str_replace('[info_20]', $communications[0]['info_20'], $content);
+            $content = str_replace('[info_21]', $communications[0]['info_21'], $content);
+            $content = str_replace('[info_22]', $communications[0]['info_22'], $content);
+            $content = str_replace('[info_23]', $communications[0]['info_23'], $content);
+            $content = str_replace('[info_24]', $communications[0]['info_24'], $content);
+            $content = str_replace('[info_25]', $communications[0]['info_25'], $content);
             $cdata = isset($communications[0]['periodo']) ? $communications[0]['periodo'] : 0;
 
             echo "<div class='comunicados-home wrap-comunicados'>";
@@ -76,7 +105,7 @@
             <p><span class="home-box-title">Comunicados</span></p>
         </a>
     </div>
-    <!--
+    
     <?php if ($_SESSION['user']['public'] != 'televendas') : ?>
         <div class="quadro-home" id="rank">
             <a class="home-box" href="<?php echo '//' . $config['baseUrl'] ?>/ranking">
@@ -85,7 +114,7 @@
             </a>
         </div>
     <?php endif ?>
-    -->
+    
     <div class="quadro-home" id="pedidos">
         <a class="home-box" href="<?php echo '//' . $config['baseUrl'] ?>/meuspedidos">
             <div class="filtro"></div>

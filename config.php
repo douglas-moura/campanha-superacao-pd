@@ -6,7 +6,7 @@
             'host' => '127.0.0.1',
             'username' => 'root',
             'password' => '',
-            'dbname' => 'gtxcombr_maxx_theraskin',
+            'dbname' => 'maxx_theraskin',
             'baseUrl' => 'localhost/maxx/theraskin/',
             'assets' => 'localhost/maxx/theraskin/assets/',
             'version' => '0.21',

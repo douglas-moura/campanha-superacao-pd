@@ -11,6 +11,7 @@
     ];
 
     include_once __DIR__ . "/../partials/header-internal.php";
+    $mesesAcumulados = 8;
 ?>
 
 
@@ -86,7 +87,7 @@
                                 $meta_acumulada = 0;
                                 $venda_acumulada = 0;
 
-                                for($m = 1; $m <= 7; $m++) {
+                                for($m = 1; $m <= $mesesAcumulados; $m++) {
                                     $meta_acumulada += floatval($usuarios[$i]['meta_' . $m]);
                                     $venda_acumulada += floatval($usuarios[$i]['venda_' . $m]);
                                 }

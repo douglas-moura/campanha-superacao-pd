@@ -1,7 +1,7 @@
 <?php
     $db = new Db($config);
     $points = $db->select("SELECT g.* from `goals` as g where g.cod = '" . $_SESSION['user']['cpf'] . "'");
-    $mesesAcumulados = 7;
+    $mesesAcumulados = 8;
 ?>
 
 <div class="wrapper wrap-tables">

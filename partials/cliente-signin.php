@@ -30,7 +30,7 @@
     $pedidos = $db->select("SELECT *, order_item.status AS item_status FROM `order_item` LEFT JOIN `order` ON order_item.order_id = order.id"); 
     $pedidosGeral = $db->select("SELECT * FROM `order`");    
 
-    $mesesAcumulados = 7;
+    $mesesAcumulados = 8;
     
     $desempenhoCamp = [
         0 => [

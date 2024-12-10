@@ -11,7 +11,7 @@
     ];
 
     include_once __DIR__ . "/../partials/header-internal.php";
-    $mesesAcumulados = 8;
+    $mesesAcumulados = 10;
 ?>
 
 

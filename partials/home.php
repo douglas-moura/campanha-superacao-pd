@@ -1,11 +1,7 @@
 <?php
     if (!isset($communications[0]['visto'])) {
         
-        if (count($communications) > 0 && isset($communications[0]['model']) && !empty($communications[0]['model']) && !empty($communications[0]['text'])) {
-            echo "<pre>";
-            echo "chegou";
-            echo "</pre>";
-            
+        if (count($communications) > 0 && isset($communications[0]['model']) && !empty($communications[0]['model']) && !empty($communications[0]['text'])) {            
             $content = str_replace('[nome]', $communications[0]['nome'], $communications[0]['text']);
             $content = str_replace('[meta]', $communications[0]['meta'], $content);
             $content = str_replace('[pontos]', $communications[0]['points'], $content);

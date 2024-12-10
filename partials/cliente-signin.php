@@ -30,7 +30,7 @@
     $pedidos = $db->select("SELECT *, order_item.status AS item_status FROM `order_item` LEFT JOIN `order` ON order_item.order_id = order.id"); 
     $pedidosGeral = $db->select("SELECT * FROM `order`");    
 
-    $mesesAcumulados = 8;
+    $mesesAcumulados = 10;
     
     $desempenhoCamp = [
         0 => [
@@ -1096,7 +1096,7 @@
                                 <ul>
                                     <h5>Resultados Mensais</h5>
                                     <br>
-                                    <li><h6><strong>ACUMULADO</strong> - julho 2024</h6></li>
+                                    <li><h6><strong>ACUMULADO</strong> - outubro 2024</h6></li>
                                     <li><p><strong>Meta</strong></p><p><?php echo 'R$ ' . number_format($meta_acumulada_thera, 2, ",", "."); ?></p></li>
                                     <li><p><strong>Venda</strong></p><p><?php echo 'R$ ' . number_format($vendas_thera, 2, ",", "."); ?></p></li>
                                     <li><p><strong>Realizado</strong></p><p><?php echo number_format(($vendas_thera / $meta_acumulada_thera) * 100 , 2, ",", ".") . "%"; ?></p></li>

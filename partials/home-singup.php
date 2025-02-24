@@ -107,7 +107,7 @@ function login($post, $db, $errors) {
                                 u.password,
                                 u.cadastro,
                                     (SELECT
-                                        p.points_e1_1 +/*
+                                        p.points_e1_1 +
                                         p.points_e1_2 +
                                         p.points_e1_3 +
                                         p.points_e1_4 +
@@ -118,7 +118,8 @@ function login($post, $db, $errors) {
                                         p.points_e1_9 +
                                         p.points_e1_10 +
                                         p.points_e1_11 +
-                                        p.points_e1_12 +*/
+                                        p.points_e1_12 +
+                                        p.points_e1_13 /*+
                                         p.points_e2_1 +
                                         p.points_e2_2 +
                                         p.points_e2_3 +
@@ -130,7 +131,7 @@ function login($post, $db, $errors) {
                                         p.points_e2_9 +
                                         p.points_e2_10 +
                                         p.points_e2_11 +
-                                        p.points_e2_12 /*+
+                                        p.points_e2_12 +
                                         p.points_e3_1 +
                                         p.points_e3_2 +
                                         p.points_e3_3 +

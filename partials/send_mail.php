@@ -1,7 +1,6 @@
 <?php
 
-function send_mail($emailTo, $toname, $email_copy, $camp_nome, $subject, $body, $siteLink)
-{
+function send_mail($emailTo, $toname, $email_copy, $camp_nome, $subject, $body, $siteLink) {
     $emailfrom = 'naoresponda@maxxpremios.com.br';
     $fromname = $camp_nome;
     $headers = 'Return-Path: ' . $emailfrom . "\r\n" .

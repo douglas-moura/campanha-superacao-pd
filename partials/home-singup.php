@@ -115,7 +115,7 @@ function login($post, $db, $errors) {
 
     if (count($rows) > 0) {
         $_SESSION['user'] = $rows[0];
-        $_SESSION['user']['password'] = (isset($rows[0]['password']) && !empty($rows[0]['password']));
+        $_SESSION['user']['password'] = $rows[0]['password'] ? $rows[0]['password'] : null;
         $_public = checkPublic($_SESSION['user']['type']);
         $_SESSION['user']['public'] = $_public['type'];
         $_SESSION['user']['travel'] = $_public['travel'];

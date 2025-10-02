@@ -80,7 +80,7 @@ $emailHeader = "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http:/
                                                     •  O prazo de entrega passa a contar após
                                                     aprovação do pedido e não são considerados finais
                                                     de semana como dias úteis;<br />
-                                                    •  O prazo de entrega do seu prêmio é de até 45
+                                                    •  O prazo de entrega do seu prêmio é de até 40
                                                     dias úteis após a sua solicitação;<br />
                                                     •  Estão autorizados a receber mercadoria
                                                     porteiros, recepcionistas, secretárias,

@@ -167,7 +167,7 @@ if (!$result || empty($result)) {
         $_productsHtml .= generateProductHtml($_product);
     }
 
-    $mailBody = prepareOrder($_name, $_date, $_address, $_productsHtml, $_total, $_frete);
+    $mailBody = prepareOrder($_name, date("d/m/Y", strtotime($_date)), $_address, $_productsHtml, $_total, $_frete);
     $_body = $emailHeader . $mailBody . $emailFooter;
 
     $baseUrl = $config['baseUrl'];

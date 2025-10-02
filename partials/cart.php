@@ -133,7 +133,7 @@
 
 <script>
     $(document).ready(function() {
-        let t = <?php echo json_encode($_SESSION['user']['password']); ?>;
+        let senha_user = <?php echo json_encode($_SESSION['user']['password']); ?>;
 
         var input_senha = $("#campo_senha_order");
         var btn_finalizar = $("#btn_fazer_pedido");
@@ -141,7 +141,7 @@
         input_senha.on('input', function(event) {
             var input_senha = event.target;
             
-            if (input_senha.value == t) {
+            if (input_senha.value == senha_user) {
                 btn_finalizar.addClass('ativado');
                 btn_finalizar.addClass('btn_prim');
                 btn_finalizar.removeClass('desativado');

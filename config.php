@@ -12,7 +12,7 @@
             'version' => '0.21',
             'imagePath' => 'https://res.cloudinary.com/maxxpremios/image/upload/q_auto:good/',
             'versionAssets' => '180411',
-            'nomeCamp' => 'Campanha Superação - Prati-Donaduzzi',
+            'nomeCamp' => 'Campanha Superação - Prati-Donaduzzi 2025',
             'emailCamp' => 'superacao-pd@gtx100.com.br',
             'versao' => '2.0802.24'
         ],
@@ -26,8 +26,8 @@
             'version' => '0.21',
             'imagePath' => 'https://res.cloudinary.com/maxxpremios/image/upload/q_auto:good/',
             'versionAssets' => '180411',
-            'nomeCamp' => 'Campanha Superação - Prati-Donaduzzi',
-            'emailCamp' => 'superacaopd@gtx100.com.br'
+            'nomeCamp' => 'Campanha Superação - Prati-Donaduzzi 2025',
+            'emailCamp' => 'superacao-pd@gtx100.com.br'
         ]
     ];
 

@@ -6,28 +6,28 @@
             'host' => '127.0.0.1',
             'username' => 'root',
             'password' => '',
-            'dbname' => 'maxx_theraskin',
-            'baseUrl' => 'localhost/maxx/theraskin/',
-            'assets' => 'localhost/maxx/theraskin/assets/',
+            'dbname' => 'superacao_prati',
+            'baseUrl' => 'localhost/superacaopd/',
+            'assets' => 'localhost/superacaopd/assets/',
             'version' => '0.21',
             'imagePath' => 'https://res.cloudinary.com/maxxpremios/image/upload/q_auto:good/',
             'versionAssets' => '180411',
-            'nomeCamp' => 'Maxx TheraSkin 2024',
-            'emailCamp' => 'theraskin2024@maxxpremios.com.br',
+            'nomeCamp' => 'Campanha Superação - Prati-Donaduzzi',
+            'emailCamp' => 'superacao-pd@gtx100.com.br',
             'versao' => '2.0802.24'
         ],
         'prod' => [
             'host' => 'localhost',
             'username' => 'gtxcombr_douglas',
             'password' => '@_Dgls_456_@',
-            'dbname' => 'gtxcombr_maxxcampanha_theraskin',
-            'baseUrl' => 'www.gtx100.com.br/maxx/theraskin24/',
-            'assets' => 'www.gtx100.com.br/maxx/theraskin24/assets/',
+            'dbname' => 'gtxcombr_superacao_prati',
+            'baseUrl' => 'www.superacaopd.gtx100.com.br/',
+            'assets' => 'www.superacaopd.gtx100.com.br/assets/',
             'version' => '0.21',
             'imagePath' => 'https://res.cloudinary.com/maxxpremios/image/upload/q_auto:good/',
             'versionAssets' => '180411',
-            'nomeCamp' => 'Maxx TheraSkin 2024',
-            'emailCamp' => 'theraskin2024@maxxpremios.com.br'
+            'nomeCamp' => 'Campanha Superação - Prati-Donaduzzi',
+            'emailCamp' => 'superacaopd@gtx100.com.br'
         ]
     ];
 

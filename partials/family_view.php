@@ -12,5 +12,7 @@
     </div>
 <?php
         }
+    } else {
+        echo '<p class="nao-divulgado" style="height: 100%;">Nenhum familiar cadastrado</p>';
     }
 ?>

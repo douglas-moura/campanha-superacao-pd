@@ -5,13 +5,14 @@
     $db = new Db($config);
 
     include_once __DIR__ . "/../partials/head.php";
+
     $page = [
         'name' => 'ranking',
         'title' => 'Ranking'
     ];
 
     include_once __DIR__ . "/../partials/header-internal.php";
-    $mesesAcumulados = 12;
+    $mesesAcumulados = 4;
 ?>
 
 
@@ -30,35 +31,19 @@
     <div class="col-md-9">
         <?php
 
+            //echo $_SESSION['user']['travel'];
+
             $grupo = null;
 
             switch ($_SESSION['user']['type']) {
-                case 'Consultor de Trade Marketing':
-                    $grupo = "users.type = 'Consultor de Trade Marketing'";
-                    $limite = 5;
-                    break;
-
-                case 'Coordenador Tecnico Cientifico Digital':
-                case 'Coordenador Trade':
-                case 'Gerente Distrital':
-                    $grupo = "users.type = 'Coordenador Trade' OR users.type = 'Coordenador Tecnico Cientifico Digital' OR users.type = 'Gerente Distrital'";
-                    $limite = 3;
-                    break;
-
-                case 'Gerente de Contas':
-                    $grupo = "users.type = 'Gerente de Contas'";
-                    $limite = 3;
-                    break;
-
-                case 'Gerente de Produto':
-                    $grupo = "users.type = 'Gerente de Produto'";
+                case 'gerente':
+                    $grupo = "users.type = 'gerente'";
                     $limite = 2;
                     break;
 
-                case 'Representante Propagandista':
-                case 'Representante Digital':
-                    $grupo = "users.type = 'Representante Digital' OR users.type = 'Representante Propagandista'";
-                    $limite = 10;
+                case 'supervisor':
+                    $grupo = "users.type = 'supervisor'";
+                    $limite = 14;
                     break;
 
                 default:
@@ -70,6 +55,11 @@
             $usuarios = $db->select("SELECT * FROM `goals` LEFT JOIN `users` ON users.cpf = goals.cod WHERE $grupo");
             
             if (count($usuarios) > 0) {
+                /*
+                echo '<pre>';
+                echo print_r($usuarios);
+                echo '</pre>';
+                */
         ?>
                 <table class="ranking-table">
                     <thead>
@@ -77,7 +67,7 @@
                             <th class="rank">Rank</th>
                             <th class="public">Nome</th>
                             <th class="public">Público</th>
-                            <!--<th class="percent">Desempenho</th>-->
+                            <th class="percent">Desempenho</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -97,6 +87,7 @@
                                 $usuarios[$i]['desempenho_acumulado'] = ($venda_acumulada == 0 && $meta_acumulada == 0) ? 0 : ($venda_acumulada / $meta_acumulada) * 100;
                             };
                             
+                            // ordenar usuários pelo desempenho acumulado
                             usort($usuarios, function($a, $b) {
                                 if ($a['desempenho_acumulado'] > $b['desempenho_acumulado']) {
                                     return -1;
@@ -108,14 +99,16 @@
                             
                             
                             for ($i = 0; $i < $limite; $i++) {
-                                echo "
-                                    <tr>
-                                        <td class='rank'>" . ($i + 1) . "</td>
-                                        <td class='public'>" . $usuarios[$i]['name'] . " " . $usuarios[$i]['name_extension'] . "</td>
-                                        <td class='public'>" . $usuarios[$i]['type'] . "</td>
-                                        <!--<td class='public'>" . number_format($usuarios[$i]['desempenho_acumulado'], 2, ',', ' ') . "%</td>-->
-                                    </tr>
-                                ";
+                                if ($_SESSION['user']['travel'] && $usuarios[$i]['desempenho_acumulado'] > 0) {
+                                    echo "
+                                        <tr>
+                                            <td class='rank'>" . ($i + 1) . "º</td>
+                                            <td class='public' style='text-align: left;'>" . $usuarios[$i]['name'] . " " . $usuarios[$i]['name_extension'] . "</td>
+                                            <td class='public'>" . ucfirst($usuarios[$i]['type']) . "</td>
+                                            <td class='public' style='text-align: right;'>" . number_format($usuarios[$i]['desempenho_acumulado'], 2, ',', ' ') . "%</td>
+                                        </tr>
+                                    ";
+                                }
                             }
                         ?>
                     </tbody>

@@ -24,13 +24,13 @@
                                     users_address.district,
                                     users_address.number,
                                     users_address.reference
-                                        FROM `users` LEFT JOIN `users_address` ON users.id = users_address.user_id WHERE users.type <> 'Teste' AND users.type <> 'Inativo' ORDER BY users.name");
+                                        FROM `users` LEFT JOIN `users_address` ON users.id = users_address.user_id WHERE users.type <> 'Teste' ORDER BY users.name");
     $theraskin = $db->select("SELECT * FROM `goals` WHERE cod = 11122233344");
     $desempenhos = $db->select("SELECT * FROM `goals` WHERE name <> 'Teste'");
     $pedidos = $db->select("SELECT *, order_item.status AS item_status FROM `order_item` LEFT JOIN `order` ON order_item.order_id = order.id"); 
     $pedidosGeral = $db->select("SELECT * FROM `order`");    
 
-    $mesesAcumulados = 12;
+    $mesesAcumulados = 4;
     
     $desempenhoCamp = [
         0 => [
@@ -662,6 +662,8 @@
                                         $participantes[$i]['pontos_total'] = 0;
                                         $participantes[$i]['qtd_pedidos'] = 0;
                                         $participantes[$i]['percent'] = 0;
+                                        $participantes[$i]['retro'] = 0;
+                                        $participantes[$i]['multi'] = 0;
 
                                         $meta_acum = 0;
                                         $venda_acum = 0;
@@ -670,15 +672,15 @@
                                         for($d = 0; $d < count($desempenhos); $d++) {
                                             if($participantes[$i]['cpf'] == $desempenhos[$d]['cod']) {
                                                 
-                                                for($v = 1; $v <= 13; $v++) {
+                                                for($v = 1; $v <= $mesesAcumulados; $v++) {
                                                     $participantes[$i]['venda_total'] += $desempenhos[$d]['venda_' . $v];
-                                                    $participantes[$i]['pontos_total'] += $v < 13 ? $desempenhos[$d]['points_e1_' . $v] : 0;
+                                                    $participantes[$i]['pontos_total'] += $v <= 13 ? $desempenhos[$d]['points_e1_' . $v] : 0;
                                                     
-                                                    $participantes[$i]['metas'][$v] = $desempenhos[$d]['meta_' . $v];
+                                                    $participantes[$i]['metas'][$v] = $v <= 13 ?  $desempenhos[$d]['meta_' . $v] : 0;
                                                     $participantes[$i]['vendas'][$v] = $desempenhos[$d]['venda_' . $v];
                                                     $participantes[$i]['realizado'][$v] = $desempenhos[$d]['realizado_' . $v] * 100;
                                                                                                         
-                                                    $participantes[$i]['pontos'][$v] = $v < 13 && isset($desempenhos[$d]['points_e1_' . $v]) ? $desempenhos[$d]['points_e1_' . $v] : 0;
+                                                    $participantes[$i]['pontos'][$v] = $v <= 13 && isset($desempenhos[$d]['points_e1_' . $v]) ? $desempenhos[$d]['points_e1_' . $v] : 0;
                                                 }
 
                                                 for($m = 1; $m <= $mesesAcumulados; $m++) {
@@ -688,6 +690,8 @@
                                                 }
 
                                                 $participantes[$i]['percent'] = isset($venda_acum) && $venda_acum > 0 ? (($venda_acum / $meta_acum) * 100) : 0;
+                                                $participantes[$i]['retro'] = isset($venda_acum) && $venda_acum > 0 ? $desempenhos[$d]['points_e2_2'] : 0;
+                                                $participantes[$i]['multi'] = isset($venda_acum) && $venda_acum > 0 ? $desempenhos[$d]['points_e2_3'] : 0;
                                             }
                                         }
 
@@ -706,7 +710,7 @@
                                             echo '<td>' . $participantes[$i]['name'] . ' ' . $participantes[$i]['name_extension'] . '</td>';
                                             //echo '<td>' . substr($participantes[$i]['cpf'], 0, 3) . '.' . substr($participantes[$i]['cpf'], 3, 3) . '.' . substr($participantes[$i]['cpf'], 6, 3) . '-' . substr($participantes[$i]['cpf'], 9, 2) . '</td>';
                                             echo '<td>' . 'R$ ' . number_format($participantes[$i]['venda_total'], 2, ",", ".") . '</td>';
-                                            echo '<td>' . number_format($participantes[$i]['percent'], 2, ",", ".") . '%</td>';
+                                            echo '<td>' . number_format($participantes[$i]['realizado'][13] / 100, 2, ",", ".") . '%</td>';
                                             echo '<td>' . number_format($participantes[$i]['pontos_total'], 0, ",", ".") . '</td>';
                                             echo '<td>' . $participantes[$i]['qtd_pedidos'] . '</td>';
                                             echo '<td><svg class="seta" id="seta-' . $i . '" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></td>';
@@ -766,7 +770,10 @@
                                                         for($v = 1; $v <= 12; $v++) {
                                                             echo '<li style="list-style-type:none;padding:.5rem 0;"><strong>' . $desempenhoCamp[$v - 1]['mes'] . "</strong>";
                                                         }
-                                                        echo '<li style="list-style-type:none;padding:.75rem 0;color: var(--cor-1) !important;"><strong>Acumulado</strong></li>'
+                                                        echo '
+                                                            <li style="list-style-type:none;color: var(--cor-1) !important;"><strong>Retroativos</strong></li>
+                                                            <li style="list-style-type:none;color: var(--cor-1) !important;"><strong>Multiplicadores</strong></li>
+                                                            <li style="list-style-type:none;padding:.75rem 0;color: var(--cor-1) !important;"><strong>Acumulado</strong></li>'
                                                     . '</ul>';
                                                 echo '<ul>
                                                         <h6>
@@ -781,7 +788,11 @@
                                                                 echo '<li style="list-style-type:none;padding:.5rem 0;">R$ ' . number_format(0, 2, ",", ".") . '</li>';
                                                             }
                                                         }
-                                                        echo '<li style="list-style-type:none;padding:.75rem 0;color: var(--cor-1) !important;"><strong>R$ ' . number_format($venda_acum, 2, ",", ".") . '</strong></li>'
+                                                        echo '
+                                                        <li style="list-style-type:none;">-</li>
+                                                        <li style="list-style-type:none;">-</li>
+                                                        <li style="list-style-type:none;padding:.75rem 0;color: var(--cor-1) !important;"><strong>R$ ' . number_format($participantes[$i]['vendas'][13], 2, ",", ".") . '</strong></li>
+                                                        '
                                                     . '</ul>';
                                                 echo '<ul>
                                                         <h6>
@@ -796,7 +807,11 @@
                                                                 echo '<li style="list-style-type:none;padding:.5rem 0;">R$ ' . number_format(0, 2, ",", ".") . '</li>';
                                                             }
                                                         }
-                                                        echo '<li style="list-style-type:none;padding:.75rem 0;color: var(--cor-1) !important;"><strong>R$ ' . number_format($meta_acum, 2, ",", ".") . '</strong></li>'
+                                                        echo '
+                                                        <li style="list-style-type:none;">-</li>
+                                                        <li style="list-style-type:none;">-</li>
+                                                        <li style="list-style-type:none;padding:.75rem 0;color: var(--cor-1) !important;"><strong>R$ ' . number_format($participantes[$i]['metas'][13], 2, ",", ".") . '</strong></li>
+                                                        '
                                                     . '</ul>';
                                                 echo '<ul>
                                                         <h6>
@@ -811,7 +826,11 @@
                                                                 echo '<li style="list-style-type:none;padding:.5rem 0;">' . number_format(0, 2, ",", ".") . '%</li>';
                                                             }
                                                         }
-                                                        echo '<li style="list-style-type:none;padding:.75rem 0;color: var(--cor-1) !important;"><strong>' . number_format($participantes[$i]['percent'], 2, ",", ".") . '%</strong></li>'
+                                                        echo '
+                                                            <li style="list-style-type:none;">-</li>
+                                                            <li style="list-style-type:none;">-</li>
+                                                            <li style="list-style-type:none;padding:.75rem 0;color: var(--cor-1) !important;"><strong>' . number_format($participantes[$i]['realizado'][13] / 100, 2, ",", ".") . '%</strong></li>
+                                                        '
                                                     . '</ul>';
                                                 echo '<ul>
                                                         <h6>
@@ -826,7 +845,11 @@
                                                                 echo '<li style="list-style-type:none;padding:.5rem 0;">' . number_format(0, 0, ",", ".") . '</li>';
                                                             }
                                                         }
-                                                        echo '<li style="list-style-type:none;padding:.75rem 0;color: var(--cor-1) !important;"><strong>' . number_format($pontos_acum, 0, ",", ".") . '</strong></li>'
+                                                        echo '
+                                                            <li style="list-style-type:none;"><strong>' . number_format($participantes[$i]['retro'], 0, ",", ".") . '</strong></li>
+                                                            <li style="list-style-type:none;"><strong>' . number_format($participantes[$i]['multi'], 0, ",", ".") . '</strong></li>
+                                                            <li style="list-style-type:none;padding:.75rem 0;color: var(--cor-1) !important;"><strong>' . number_format($pontos_acum, 0, ",", ".") . '</strong></li>
+                                                            '
                                                     . '</ul>
                                                 </span>
                                             </td>';
@@ -879,7 +902,7 @@
                         }
 
                         for($d = 0; $d < count($desempenhos); $d++) {
-                            for($v = 1; $v <= 12; $v++) {
+                            for($v = 1; $v <= 13; $v++) {
                                 $qtd_pontosGeral += $desempenhos[$d]['points_e1_' . $v];
                             }
                         }
@@ -910,10 +933,12 @@
                             <td>Maxx Pontos Distribuidos</td>
                             <td><?php echo number_format($qtd_pontosGeral, 0, ",", "."); ?></td>
                         </tr>
+                        <!--
                         <tr>
                             <td>Maxx Pontos Liberados</td>
                             <td><?php echo number_format($qtd_pontosLiberados, 0, ",", "."); ?></td>
                         </tr>
+                        -->
                         <tr>
                             <td>Maxx Pontos Trocados</td>
                             <td><?php echo number_format($qtd_pontosTrocados, 0, ",", "."); ?></td>
@@ -1241,6 +1266,7 @@
                             <?php
                                 isset($publico_005) ? usort($publico_005, 'compare_by_percent') : [];
                                 for($i = 0; $i < count($publico_005); $i++) {
+                                    
                                     echo $i < 6 ? ($publico_005[$i]['percent'] > 100 ? '<tr class="viajante">' : '<tr class="viajante-2">') : '<tr>';
                                         echo '<td>#' . $i + 1 . '</td>';
                                         echo isset($publico_005[$i]['name']) ? '<td>' . $publico_005[$i]['name'] . ' ' . $publico_005[$i]['name_extension'] . '</td>' : '<td></td>';
@@ -1288,11 +1314,11 @@
             </div>
         </div>
             <?php
-            /*
+            
                 echo "<pre>";
                 echo print_r($participantes);
                 echo "</pre>";
-                */
+                
             ?>
     </div>
 </section>

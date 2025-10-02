@@ -2,7 +2,7 @@
     if (!isset($communications[0]['visto'])) {
         
         if (count($communications) > 0 && isset($communications[0]['model']) && !empty($communications[0]['model']) && !empty($communications[0]['text'])) {            
-            $content = str_replace('[nome]', $communications[0]['nome'], $communications[0]['text']);
+            $content = str_replace('[nome]', $_SESSION['user']['name'], $communications[0]['text']);
             $content = str_replace('[meta]', $communications[0]['meta'], $content);
             $content = str_replace('[pontos]', $communications[0]['points'], $content);
             $content = str_replace('[pontosProjecao]', $communications[0]['projecao'], $content);
@@ -66,10 +66,10 @@
     <div class="quadro-home" id="pontos">
         <a class="home-box" href="<?php echo '//' . $config['baseUrl'] ?>/pontos">
             <div class="filtro"></div>
-            <p><span class="home-box-title">Pontos</span></p>
+            <p><span class="home-box-title"><?php echo ($_SESSION['user']['travel']) ? 'Desempenho' : 'Pontos' ?></span></p>
         </a>
     </div>
-    <?php if ($_SESSION['user']['public'] != 'televendas') : ?>
+    <?php if ($_SESSION['user']['travel']) : ?>
         <div class="quadro-home" id="viagem">
             <a class="home-box" href="<?php echo '//' . $config['baseUrl'] ?>/viagem">
                 <div class="filtro"></div>
@@ -77,12 +77,14 @@
             </a>
         </div>
     <?php endif ?>
-    <div class="quadro-home" id="premios">
-        <a class="home-box" href="<?php echo '//' . $config['baseUrl'] ?>/catalogo">
-            <div class="filtro"></div>
-            <p><span class="home-box-title">Prêmios</span></p>
-        </a>
-    </div>
+    <?php if (!$_SESSION['user']['travel']) : ?>
+        <div class="quadro-home" id="premios">
+            <a class="home-box" href="<?php echo '//' . $config['baseUrl'] ?>/catalogo">
+                <div class="filtro"></div>
+                <p><span class="home-box-title">Prêmios</span></p>
+            </a>
+        </div>
+    <?php endif ?>
     <div class="quadro-home" id="regulamento">
         <a class="home-box" href="<?php echo '//' . $config['baseUrl'] ?>/regulamento">
             <div class="filtro"></div>
@@ -101,8 +103,7 @@
             <p><span class="home-box-title">Comunicados</span></p>
         </a>
     </div>
-    
-    <?php if ($_SESSION['user']['public'] != 'televendas') : ?>
+    <?php if ($_SESSION['user']['travel']) : ?>
         <div class="quadro-home" id="rank">
             <a class="home-box" href="<?php echo '//' . $config['baseUrl'] ?>/ranking">
                 <div class="filtro"></div>
@@ -110,13 +111,14 @@
             </a>
         </div>
     <?php endif ?>
-    
-    <div class="quadro-home" id="pedidos">
-        <a class="home-box" href="<?php echo '//' . $config['baseUrl'] ?>/meuspedidos">
-            <div class="filtro"></div>
-            <p><span class="home-box-title">Pedidos</span></p>
-        </a>
-    </div>
+    <?php if (!$_SESSION['user']['travel']) : ?>
+        <div class="quadro-home" id="pedidos">
+            <a class="home-box" href="<?php echo '//' . $config['baseUrl'] ?>/meuspedidos">
+                <div class="filtro"></div>
+                <p><span class="home-box-title">Pedidos</span></p>
+            </a>
+        </div>
+    <?php endif ?>
 </section>
 <script>
     function fechar_notif() {

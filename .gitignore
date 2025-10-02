@@ -1,2 +1,2 @@
 # Ignorar diretórios de build
-/node_modules/
+node_modules/

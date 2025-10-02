@@ -28,7 +28,7 @@ echo '</pre>';
 
         if (count($communications) > 0) {
             for ($i = 0; $i < count($communications); $i++) {
-                $content = str_replace('[nome]', $communications[$i]['nome'], $communications[$i]['text']);
+                $content = str_replace('[nome]', $_SESSION['user']['name'], $communications[$i]['text']);
                 $content = str_replace('[meta]', $communications[$i]['meta'], $content);
                 $content = str_replace('[pontos]', $communications[$i]['points'], $content);
                 $content = str_replace('[pontosProjecao]', $communications[$i]['projecao'], $content);

@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-$cor_prim: #5C1BFA;
-$cor_escuro_prim: #240890;
-$cor_claro_prim: #A575FD;
-$cor_reticula_prim: #E4D1FE;
-$cor_sec: #FAC200;
-$cor_escuro_sec: #B38300;
-$cor_reticula_sec: #FEF8CB;
+$cor_prim: #D97A06;
+$cor_escuro_prim: #BF2505;
+$cor_claro_prim: #F2B602;
+$cor_reticula_prim: #FDD9AE;
+$cor_sec: #750303;
+$cor_escuro_sec: #270000;
+$cor_reticula_sec: #FEDFDF;
 $preto: #191919;
 $cinza: #4F4F4F;
 $cinza_claro_1: #f3f3f3;
@@ -63,6 +63,8 @@ $cinza_claro_3: #d7d7d7;
 
                     .header-home {
                         .logo-campanha {
+                            align-items: center !important;
+                            
                             svg {
                                 width: 90%;
                             }
@@ -146,6 +148,14 @@ $cinza_claro_3: #d7d7d7;
                     .formularios {
                         .coluna-1, .coluna-2 {
                             width: 100% !important;
+                        }
+
+                        .perfil-endereco {
+                            flex-direction: column !important;
+
+                            .perfil, .endereco {
+                                width: 100% !important;
+                            }
                         }
                     }
 
@@ -279,7 +289,7 @@ $cinza_claro_3: #d7d7d7;
 
 @media only screen and (min-width: 1280px) {
     html {
-        font-size: 14px !important;
+        font-size: 16px !important;
 
         body {
             .header-conteudo, .forehead, .wrapper {
@@ -375,11 +385,11 @@ body {
                 .logo-campanha {
                     height: 100%;
                     display: flex;
-                    padding: 0 1rem;
+                    padding: 0 .5rem;
 
                     img {
                         margin: auto;
-                        width: 50%;
+                        width: 90%;
                     }
 
                     svg {
@@ -404,25 +414,24 @@ body {
                     padding: 1rem;
                 }
 
-                ul {
+                div {
                     width: 100%;
                     margin: 0;
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
-                    align-items: flex-end;
                     
-                    li {
-                        list-style-type: none;
-                        font-size: .8rem;
-
-                        &:first-of-type {
-                            width: 40%;
-                        }
-
-                        span {
-                            font-size: 1.2rem !important;
-                            font-weight: 800;
+                    ul {
+                        margin: 0 !important;
+                        
+                        li {
+                            list-style-type: none;
+                            font-size: .8rem;
+    
+                            span {
+                                font-size: 1.2rem !important;
+                                font-weight: 800;
+                            }
                         }
                     }
                 }
@@ -520,8 +529,8 @@ body {
                     -moz-box-shadow: 0 1rem 2rem -10px $cor_sec;
                     */
                     img {
-                        width: 75%;
-                        margin-top: 1.5rem;
+                        width: 100%;
+                        filter: drop-shadow(.2rem .2rem .15rem #bbb);
                     }
 
                     svg {
@@ -559,7 +568,7 @@ body {
                             }
 
                             input {
-                                padding: .5rem;
+                                padding: .75rem;
                                 outline: none;
                                 border: .05rem solid $cinza_claro_3 !important;
                                 border-radius: .5rem;
@@ -898,10 +907,6 @@ body {
                             font-size: .8rem;
                             color: $cinza;
                             margin: 0 !important;
-
-                            strong {
-                                font-size: 1rem;
-                            }
                         }
 
                         span {
@@ -982,10 +987,6 @@ body {
                                 .points {
                                     font-size: 1.2rem;
                                     font-weight: 500;
-
-                                    strong {
-                                        font-size: 1.8rem;
-                                    }
                                 }
                             }
                         }
@@ -1065,24 +1066,24 @@ body {
                 height: 600px !important;
             }
 
-            .bgimg-1-can {
-                background-image: url("../../img/v/can/voenews.90-104-1536x1078.jpg");
+            .bgimg-1 {
+                background-image: url("../../img/v/nor/1.jpg");
             }
 
-            .bgimg-2-can {
-                background-image: url("../../img/v/can/tudo-sobre-cancun-placa.jpg");
+            .bgimg-2 {
+                background-image: url("../../img/v/nor/2.jpg");
             }
 
-            .bgimg-3-can {
-                background-image: url("../../img/v/can/pool-with-hammock-area.jpg");
+            .bgimg-3 {
+                background-image: url("../../img/v/nor/3.jpg");
             }
 
-            .bgimg-4-can {
-                background-image: url("../../img/v/can/pyramid-2826190_1280.jpg");
+            .bgimg-4 {
+                background-image: url("../../img/v/nor/4.jpg");
             }
 
-            .bgimg-5-can {
-                background-image: url("../../img/v/can/pexels-tellez-erik-12956666.jpg");
+            .bgimg-5 {
+                background-image: url("../../img/v/nor/5.jpg");
             }
         }
 
@@ -1622,19 +1623,19 @@ body {
 
                         tr {
                             &:nth-child(1) {
-                                background-color: $cor_prim;
+                                background-color: $cor_escuro_prim;
                                 font-weight: bold;
                                 color: #fff;
                             }
 
                             &:nth-child(2) {
-                                background-color: $cor_sec;
+                                background-color: $cor_claro_prim;
                                 font-weight: bold;
                                 color: $preto !important;
                             }
 
-                            &:nth-child(3), &:nth-child(4) {
-                                background-color: $cor_reticula_sec;
+                            &:nth-child(3) {
+                                background-color: $cor_reticula_prim;
                                 font-weight: bold;
                                 color: $preto !important;
                             }
@@ -1670,6 +1671,19 @@ body {
                 width: 100%;
                 margin: 2rem 0;
 
+                .perfil-endereco {
+                    display: flex !important;
+
+                    div {
+                        width: 48% !important;
+                        margin-right: 2% !important;
+
+                        .profile-form {
+                            width: 100% !important;
+                        }
+                    }
+                }
+
                 .coluna {
                     position: relative;
     
@@ -1677,7 +1691,19 @@ body {
                         padding: 1.5rem;
                         border: .1rem solid $cinza_claro_3;
                         border-radius: 1rem;
-                        margin-bottom: 2rem;                        
+                        margin-bottom: 2rem;
+                        
+                        .addres-form {
+                            width: 100% !important;
+
+                            .linha-form {
+                                width: 100% !important;
+
+                                div {
+                                    width: 100% !important;
+                                }
+                            }
+                        }
     
                         fieldset {
                             h3 {
@@ -1759,13 +1785,26 @@ body {
                                 }
                             }
                         }
-                    }    
+                    }
 
                     .form-register-profile {
-                        margin-top: 3rem !important;
-
                         fieldset {
                             width: 100% !important;
+
+                            .form-perfil {
+                                display: flex !important;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                width: 100% !important;
+
+                                .linha-form {
+                                    width: 49% !important;
+                                }
+
+                                .linha-form-wide {
+                                    width: 100% !important;
+                                }
+                            }
 
                             button {
                                 width: 100% !important;
@@ -1924,7 +1963,6 @@ body {
 
                     strong {
                         color: $cor_escuro_prim;
-                        font-size: 1.5rem;
                     }
                 }
 

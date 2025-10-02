@@ -1,6 +1,6 @@
 <section class="wrapper viagem">
     <div class="text-box banner-viagem">
-        <h2><strong>VENHA VIVER AS FÉRIAS DA SUA VIDA!</strong></h2>
+        <h2 style="font-size: 2.5rem;"><strong>VENHA VIVER AS FÉRIAS DA SUA VIDA!</strong></h2>
     </div>
 
     <div class="bgimg bgimg-1-can"></div> <!-- IMG -->

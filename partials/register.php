@@ -45,7 +45,7 @@
 ?>
 
 <div class="formularios">
-    <div class="coluna coluna-1">
+    <div class="coluna perfil-endereco">
         <div class="perfil">
             <?php
                 $showProfile = '';
@@ -59,7 +59,6 @@
                 echo "</div>";
             ?>
         </div>
-        
         <div class="endereco">
             <?php
                 $showForm = '';
@@ -75,7 +74,7 @@
         </div>
     </div>
     
-    <div class="coluna coluna-2">
+    <div class="coluna">
         <?php
             include_once __DIR__ . "/family_form.php";
             if ($_SESSION['user']):
@@ -83,7 +82,7 @@
     </div>
 </div>
 
-<a href="<?php echo '//' . $config['baseUrl'] ?>/finalizar" class="btn_prim btn_padrao"> Finalizar Atualização</a>
+<a href="<?php echo '//' . $config['baseUrl'] ?>/home" class="btn_prim btn_padrao"> Finalizar Atualização</a>
 
 <?php
     endif;

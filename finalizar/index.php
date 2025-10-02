@@ -9,11 +9,9 @@
 ?>
 <div class="site-wrapper">
     <section class="box-login">
-        <h4>Parabéns! Agora seu cadastro está atualizado e foi enviado para análise.</h4>
-        <br>
-        <p>Em alguns dias, suas metas serão divulgadas no site da campanha e você receberá em seu endereço cadastrado o Material da Campanha.</p><br><br>
+        <h4>Parabéns! Agora seu cadastro está atualizado e você já pode acessar a paltaforma da Campanha.</h4>astrado o Material da Campanha.</p><br><br>
         <p>Em caso de dúvidas: <?php echo $config['emailCamp'] ?></p><br>
-        <a class="btn_prim btn_padrao" href="<?php echo '//' . $config['baseUrl'] ?>">Entrar</a>
+        <a class="btn_prim btn_padrao" href="<?php echo '//' . $config['baseUrl'] . '/home' ?>">Entrar</a>
     </section>
 </div>
 

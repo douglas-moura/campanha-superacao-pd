@@ -1,7 +1,7 @@
 <?php
 
 function send_mail($emailTo, $toname, $email_copy, $camp_nome, $subject, $body, $siteLink) {
-    $emailfrom = 'naoresponda@maxxpremios.com.br';
+    $emailfrom = 'naoresponda@gtx100.com.br';
     $fromname = $camp_nome;
     $headers = 'Return-Path: ' . $emailfrom . "\r\n" .
         'From: ' . $fromname . ' <' . $emailfrom . '>' . "\r\n" .
@@ -23,7 +23,7 @@ $emailHeader = "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http:/
         <html xmlns='http://www.w3.org/1999/xhtml'>
             <head>
                 <meta http-equiv='content-type' content='application/xhtml+xml; charset=utf-8' />
-                <meta name='mail_nameFrom' content='Maxxpremios' />
+                <meta name='mail_nameFrom' content='Superacao' />
                 <meta name='mail_subject' content='Seu pedido' />
                 <title>Seu pedido</title>
                 <style type='text/css'>body {line-height: 20px; font-size: 14px;}</style>
@@ -34,7 +34,7 @@ $emailHeader = "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http:/
                         <tbody>
                             <tr>
                                 <td style='text-align: center; border-top: 10px solid #3167F6; padding-top: 10px;'>
-                                    <img class='banner-email' src='https://gtx100.com.br/maxx/theraskin24/img/c/logo_campanha.png' style='display:flex;border:0;margin:0 auto !important;' alt='$camp_nome' width='150' />
+                                    <img class='banner-email' src='https://superacaopd.gtx100.com.br/img/c/logo_campanha.png' style='display:flex;border:0;margin:0 auto !important;' alt='$camp_nome' width='150' />
                                 </td>
                             </tr>
                             
@@ -336,4 +336,4 @@ function generateProductHtml($product) {
 // $mailBody = prepareOrder($name, $date, $address, $product, $total);
 // $body = $header . $mailBody . $footer;
 
-// send_mail('cesar.riello@gmail.com', $name, 'Pedido Efetuado - Maxx Prêmios', $body);
+// send_mail('cesar.riello@gmail.com', $name, 'Pedido Efetuado - Campanha Superação', $body);

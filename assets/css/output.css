@@ -332,6 +332,7 @@ body .site-wrapper {
   /* Viagem */
   /* Carrinho */
   /* Regulamento */
+  /* Equipes */
   /* Pontos */
   /* Comunicados */
   /* Ranking */
@@ -1000,6 +1001,42 @@ body .site-wrapper .wrap-rules .texto .coluna .sub_1 {
 }
 body .site-wrapper .wrap-rules .texto .coluna .sub_2 {
   margin-left: 6rem;
+}
+body .site-wrapper .wrap-equipes div table thead tr {
+  background-color: #BF2505;
+  color: #fff;
+}
+body .site-wrapper .wrap-equipes div table thead tr th {
+  padding: 1.5rem 1rem;
+}
+body .site-wrapper .wrap-equipes div table thead tr th:first-of-type {
+  border-radius: 1rem 0 0 0;
+}
+body .site-wrapper .wrap-equipes div table thead tr th:last-of-type {
+  border-radius: 0 1rem 0 0;
+}
+body .site-wrapper .wrap-equipes div table tr td {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  text-align: left;
+  max-width: 150px; /* largura máxima da célula */
+  white-space: nowrap; /* impede quebra de linha */
+  overflow: hidden; /* esconde o excesso */
+  text-overflow: ellipsis; /* adiciona "..." */
+}
+body .site-wrapper .wrap-equipes div table tr:nth-child(even) {
+  background-color: #eee;
+}
+body .site-wrapper .wrap-equipes div table .linha-supervisor {
+  background-color: #D97A06 !important;
+  color: #fff;
+  border-top: 0.5rem solid white;
+}
+body .site-wrapper .wrap-equipes div table .linha-supervisor td {
+  padding: 1.25rem 1rem !important;
+}
+body .site-wrapper .wrap-equipes div table .linha-representante:nth-child(even) {
+  background-color: #eee;
 }
 body .site-wrapper .wrap-tables h2 {
   font-weight: 600;

@@ -41,6 +41,9 @@
                 <?php endif ?>
                 <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/regulamento">Regulamento</a>
                 <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/pontos"><?php echo ($_SESSION['user']['travel']) ? 'Desempenho' : 'Pontos e Desempenho' ?></a>
+                <?php if ($_SESSION['user']['travel']) : ?>
+                    <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/equipe">Minha Equipe</a>
+                <?php endif ?>
                 <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/comunicados">Comunicados</a>
                 <?php if ($_SESSION['user']['travel']) : ?>
                     <a class="nav-link" href="<?php echo '//' . $config['baseUrl'] ?>/ranking">Ranking</a>

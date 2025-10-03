@@ -160,12 +160,12 @@ $cinza_claro_3: #d7d7d7;
                     }
 
                 }
-
+                
                 .pedidos_feitos {
                     .box-pedidos {
                         flex-direction: column !important;
                         overflow-y: hidden !important;
-
+                        
                         div {
                             width: 100% !important;
                         }
@@ -173,7 +173,7 @@ $cinza_claro_3: #d7d7d7;
                         .descr {
                             margin-bottom: 1rem !important;
                         }
-
+                        
                         .lista-pedidos {
                             .orders {
                                 width: 300% !important;
@@ -185,18 +185,18 @@ $cinza_claro_3: #d7d7d7;
                                         li {
                                             display: flex;
                                             width: 100% !important;
-
+                                            
                                             p {
                                                 width: 50% !important;
                                             }
-
+                                            
                                             .order-resume-text-info {
                                                 padding-left: 1rem !important;
                                             }
                                         }
                                     }
                                 }
-
+                                
                                 .order-package {
                                     .order-products {
                                         .order-product {
@@ -208,10 +208,10 @@ $cinza_claro_3: #d7d7d7;
                         }
                     }
                 }
-
+                
                 .wrap-tables {
                     overflow-y: hidden !important;
-
+                    
                     .pontos_simples {
                         width: 250%;
                     }
@@ -483,8 +483,8 @@ body {
             }           
         }     
         
-         /* Login */
-         .box-login {
+        /* Login */
+        .box-login {
             width: 25rem;
             padding: 3rem;
             border-radius: 1.5rem;
@@ -1277,6 +1277,72 @@ body {
 
                     .sub_2 {
                         margin-left: 6rem;
+                    }
+                }
+            }
+        }
+
+        /* Equipes */
+                
+        .wrap-equipes {
+            div {
+                table {
+                    thead {
+                        tr {
+                            background-color: $cor_escuro_prim;
+                            color: #fff;
+
+                            th {
+                                padding: 1.5rem 1rem;
+                                
+                            &:first-of-type {
+                                border-radius: 1rem 0 0 0;
+                            }
+                            &:last-of-type {
+                                border-radius: 0 1rem 0 0;
+                            }
+                            }
+                        }
+                    }
+
+                    tr {
+                        td {
+                            padding: .5rem 1rem;
+                            font-size: .75rem;
+                            text-align: left;
+                            //border: 1px solid blue;
+                            max-width: 150px;       /* largura máxima da célula */
+                            white-space: nowrap;    /* impede quebra de linha */
+                            overflow: hidden;       /* esconde o excesso */
+                            text-overflow: ellipsis; /* adiciona "..." */
+                        }
+
+                        &:nth-child(even) {
+                            background-color: #eee;
+                        }
+                    }
+
+                    .linha-supervisor {
+                        background-color: $cor_prim !important;
+                        color: #fff;
+                        border-top: .5rem solid white;
+                        
+                        
+                        td {
+                            &:first-of-type {
+                                //border-radius: 1rem 0 0 0;
+                            }
+                            &:last-of-type {
+                                //border-radius: 0 1rem 0 0;
+                            }
+                            padding: 1.25rem 1rem !important;
+                        }
+                    }
+
+                    .linha-representante {
+                        &:nth-child(even) {
+                            background-color: #eee;
+                        }
                     }
                 }
             }

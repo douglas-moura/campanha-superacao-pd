@@ -60,6 +60,7 @@ function login($post, $db, $errors) {
 
     $rows = $db->select("SELECT
                                 u.id,
+                                u.codigo,
                                 u.email,
                                 u.cpf,
                                 u.name,
@@ -70,6 +71,7 @@ function login($post, $db, $errors) {
                                 u.birthday,
                                 u.type,
                                 u.password,
+                                u.boss,
                                 u.cadastro,
                                     (SELECT
                                         p.points_e1_1 +
